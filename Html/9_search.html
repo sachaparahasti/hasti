@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+</head>
+
+<body>
+    <form action="success.html" method="post">
+        <table border="1" align="center" width="500px" bgcolor="#a2d9ce " cellspacing="10" cellpadding="15">
+            <tr>
+                <th colspan="2">
+                    <h1>Student Info</h1>
+                </th>
+            </tr>
+            <tr>
+                <td><label for="name">Name</label></td>
+                <td><input type="text" id="name" name="name"></td>
+            </tr>
+            <tr>
+                <td><label for="pass">Password</label></td>
+                <td><input type="password" id="pass" name="pass"></td>
+            </tr>
+            <tr>
+                <td><label for="add">Address</label></td>
+                <td><textarea name="address" id="address" cols="30" rows="10"></textarea></td>
+            </tr>
+            <tr>
+                <td><label>Gender</label></td>
+                <td><label><input type="radio" name="gender" value="Female">Female</label>
+                    <label><input type="radio" name="gender" value="Male">Male</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="birth">Date Of Birth</label></td>
+                <td><input type="date" id="birth" name="birth" required /></td>
+            </tr>
+            <tr>
+                <td>
+                    <label>City</label>
+                </td>
+                <td>
+                    <select>
+                        <option value="">Select</option>
+                        <option value="1">Bhavnager</option>
+                        <option value="2">Surat</option>
+                        <option value="3">Rajkot</option>
+                        <option value="4">Ahemdabad</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="animal">Favorite</label>
+                </td>
+                <td> <label><input type="checkbox" name="animal" id="animal" value="1">Cat</label>
+                    <label><input type="checkbox" name="animal" id="animal" value="2 ">Dog</label>
+                    <label><input type="checkbox" name="animal" id="animal" value="3">Lion</label>
+                    <label><input type="checkbox" name="animal" id="animal" value="4">Rabbit</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="submit">Submit</button>
+                    <button type="reset">Reset</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>
