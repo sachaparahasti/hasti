@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compose Email</title>
+</head>
+<body>
+    <form action="success.html" method="post" enctype="multipart/form-data">
+        <table border="1" cellspacing="10" cellpadding="10" align="center" width="60%">
+            <tr>
+                <td align="center"><h3>Compose Email</h3></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="email" name="email" placeholder="email Address" required />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="subject" placeholder="Email Subject" required />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <textarea name="message" id="message" placeholder="message" required rows="10" cols="10" maxlength="500"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="file">Select Photo</label>
+                    <input type="file" id="file"  name="attach" />
+                </td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="send email">
+                <input type="reset" value="Clear all"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

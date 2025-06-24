@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Courgette&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+        * {
+            margin: 0px;
+            letter-spacing: 1px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        #site-header {
+            display: flex;
+            justify-content: space-between;
+            background-color: #ffffff;
+            position: sticky;
+            top: 0px;
+            left: 0px;
+            height: 100px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+        }
+
+        #site-header>h1 {
+            padding: 2%;
+            color: #734060;
+            font-family: "Comic Neue", cursive;
+            font-weight: 300;
+        }
+
+        #site-header>h1>span {
+            font-family: "Courgette", cursive;
+            font-weight: 400;
+            color: #C4C4C4;
+        }
+
+        #menu {
+            display: flex;
+            list-style-type: none;
+            gap: 20px;
+            align-items: center;
+
+        }
+
+        .menu-item {
+            padding: 10px;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  color: black;
+            text-decoration: none;
+
+        }
+
+        #content>h1 {
+            text-align: center;
+            margin: 20px 0px;
+
+        }
+
+        #content>h1>span {
+            font-family: "Parisienne", cursive;
+            font-weight: 200;
+            color: #734060;
+        }
+
+        #content>h1 {
+            font-family: "Playfair Display", serif;
+            font-optical-sizing: 200;
+            color: black;
+        }
+
+        #content>span>article {
+            display: flex;
+            flex-wrap: wrap;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+        }
+
+        #content>span>article>span>figure {
+            width: calc(100vw / 4 - 20px);
+            margin: 5px;
+            margin-bottom: 10px;
+            border: 2px solid black;
+            display: flex;
+            text-align: justify;
+            flex-direction: column;
+        }
+
+        #site-footer {
+            background-color: white;
+            color: black;
+            display: flex;
+            justify-content: space-around;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            position: sticky;
+            left: 0px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+            bottom: 0px;
+        }
+
+        #site-footer a {
+            color: black;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        #site-footer>div>h3 {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        #site-footer>div>ul>li {
+            list-style-type: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="site-header">
+        <h1>Pinch <span>Of</span> Yum</h1>
+        <ul id="menu">
+            <li><a href="#" class="menu-item">Home</a></li>
+            <li><a href="#" class="menu-item">About</a></li>
+            <li><a href="#" class="menu-item">Recipe</a></li>
+            <li><a href="#" class="menu-item">Start Hear</a></li>
+        </ul>
+    </header>
+    <section id="content">
+
+        <h1>Simple recipes made for <span> real , actual , everyday life</span> </h1><br />
+
+        <span>
+            <article>
+                <span>
+                    <figure>
+                        <img src="images/p1.jpg" alt="">
+                        <figcaption>SALADS</figcaption>
+                    </figure>
+                </span>
+                <span>
+                    <figure>
+                        <img src="images/p2.jpg" alt="">
+                        <figcaption>MOSTPOPULAR</figcaption>
+                    </figure>
+                </span>
+                <span>
+                    <figure>
+                        <img src="images/p3.jpg" alt="">
+                        <figcaption>DINNER</figcaption>
+                    </figure>
+                </span>
+                <span>
+                    <figure>
+                        <img src="images/p4.jpg" alt="">
+                        <figcaption>QUICK AND EASY</figcaption>
+                    </figure>
+                </span>
+            </article>
+        </span>
+    </section>
+    <footer id="site-footer">
+        <div>
+            <h3>Pinch of yum</h3>
+            <ul>
+                <li><a href="#" class="menu-item-footer">About</a></li>
+                <li><a href="#" class="menu-item-footer">Contact</a></li>
+                <li><a href="#" class="menu-item-footer">Recipe</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3>Food & Recipes</h3>
+            <ul>
+                <li><a href="#" class="menu-item-footer">Suger Free janiary</a></li>
+                <li><a href="#" class="menu-item-footer">Pasta Recipe</a></li>
+                <li><a href="#" class="menu-item-footer">Vegan Recipes</a></li>
+                <li><a href="#" class="menu-item-footer">Soup Recipe</a></li>
+            </ul>
+        </div>
+    </footer>
+
+</body>
+
+</html>

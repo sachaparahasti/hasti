@@ -1,0 +1,15 @@
+.profile
+{
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+}
+body
+{
+    background-color:whitesmoke;
+    background-image: url(images/location.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    height: 100vh;
+}
