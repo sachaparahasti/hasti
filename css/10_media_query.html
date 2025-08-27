@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media query</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            letter-spacing: 1px;
+        }
+        section
+        {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        section>article
+        {
+            text-align: justify;
+        }
+        section>article>p
+        {
+            text-indent: 20px;
+        }
+        /*  ##Device = Most of the Smartphones Mobiles (Portrait) ##Screen = B/w 320px to 479px */
+        @media (min-width: 320px) and (max-width: 480px) {
+            /* code in this block will be applied only if device width>320 and <480 */
+            body{
+                color: black;
+                background-color: #7dadb6;
+            }
+            section>article
+            {
+                width: calc(100% - 40px);
+                margin: 10px 20px;
+                font-size: 21px;
+                border: 1px solid white;
+                padding: 10px;
+            }
+            section>article>header
+            {
+                font-size: 26px;
+            }
+            section>article>footer
+            {
+                font-size: 26px;
+            }
+        }
+
+        /* ##Device = Low Resolution Tablets,  ##Screen = B/w 481px to 767px */
+        @media (min-width: 481px) and (max-width: 767px) {
+            /* code in this block will be applied only if device width>481 and <767 */
+            body{
+                color: #003366;
+                background-color: #e0f0ff;
+            }
+            section>article
+            {
+                width: calc(50% - 20px);
+                margin: 10px 5px;
+                font-size: 20px;
+                border: 1px solid white;
+                padding: 10px;
+            }
+            section>article>header
+            {
+                font-size: 26px;
+            }
+            section>article>footer
+            {
+                font-size: 26px;
+            }
+        }
+
+        /* ##Device = Tablets, Ipads (portrait) ##Screen = B/w 768px to 1024px */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            /* code in this block will be applied only if device width>768 and <1024 */
+            body{
+                color: #333333;
+                background-color:  #cceeff;
+            }
+            section>article
+            {
+                width: calc(33.33% - 18px);
+                margin: 10px 3px;
+                font-size: 19px;
+                border: 1px solid white;
+                padding: 5px;
+            }
+            section>article>header
+            {
+                font-size: 26px;
+            }
+            section>article>footer
+            {
+                font-size: 26px;
+            }
+        }
+
+        /* ##Device = Laptops, Desktops ##Screen = B/w 1025px to 1280px*/
+        @media (min-width: 1025px) and (max-width: 1280px) {
+            /* code in this block will be applied only if device width>1025 and <1280 */
+            body{
+                color: black;
+                background-color: #7dadb6;
+            }
+            section>article
+            {
+                width: calc(25% - 16px);
+                margin: 10px 4px;
+                font-size: 18px;
+                border: 1px solid white;
+                padding: 5px;
+            }
+            section>article>header
+            {
+                font-size: 26px;
+            }
+            section>article>footer
+            {
+                font-size: 26px;
+            }
+        }
+
+        /* ##Device = Desktops ##Screen = 1281px to higher resolution desktop */
+        @media (min-width: 1281px) {
+            /* code in this block will be applied only if device width>1281 */
+            body{
+                color:  #006600;
+                background-color: #e0ffe0;
+            }
+            section>article
+            {
+                width: calc(20% - 25px);
+                margin: 10px 5px;
+                font-size: 18px;
+                border: 1px solid white;
+                padding: 5px;
+            }
+            section>article>header
+            {
+                font-size: 26px;
+            }
+            section>article>footer
+            {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>Media Query Example 1</header>
+    <section>
+        <article>
+            <header>Breacking news 1 </header>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid ratione neque, voluptatem expedita
+                nulla repellat atque eos ipsum ipsa alias assumenda a mollitia, reiciendis tenetur. Aperiam suscipit
+                fugiat beatae quod deserunt enim explicabo quam fuga ullam, non quos id laborum magnam eligendi
+                praesentium, eveniet labore deleniti! Officiis necessitatibus accusantium blanditiis, quibusdam
+                repellendus iusto, corporis molestiae molestias voluptate facilis, adipisci nam. Provident laudantium
+                maxime placeat quaerat nobis minima, corrupti consequuntur hic assumenda porro cupiditate tempore dolor
+                repellendus ex sit nesciunt exercitationem excepturi sequi quas. Id earum eligendi corporis repellat,
+                illo quaerat delectus aliquid fuga iure quasi eaque dolor at quo corrupti?</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste, minus? Quam nulla voluptatibus atque
+                dolor cum nemo amet assumenda? Cupiditate dicta incidunt cumque, iure ea distinctio at itaque autem
+                asperiores perferendis ullam. Dignissimos cum sunt quidem vero fuga, necessitatibus nobis deserunt totam
+                provident, dolorum asperiores alias atque, officia iste nostrum.</p>
+            <footer>news 1</footer>
+        </article>
+        <article>
+            <header>Breacking news 2 </header>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid ratione neque, voluptatem expedita
+                nulla repellat atque eos ipsum ipsa alias assumenda a mollitia, reiciendis tenetur. Aperiam suscipit
+                fugiat beatae quod deserunt enim explicabo quam fuga ullam, non quos id laborum magnam eligendi
+                praesentium, eveniet labore deleniti! Officiis necessitatibus accusantium blanditiis, quibusdam
+                repellendus iusto, corporis molestiae molestias voluptate facilis, adipisci nam. Provident laudantium
+                maxime placeat quaerat nobis minima, corrupti consequuntur hic assumenda porro cupiditate tempore dolor
+                repellendus ex sit nesciunt exercitationem excepturi sequi quas. Id earum eligendi corporis repellat,
+                illo quaerat delectus aliquid fuga iure quasi eaque dolor at quo corrupti?</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste, minus? Quam nulla voluptatibus atque
+                dolor cum nemo amet assumenda? Cupiditate dicta incidunt cumque, iure ea distinctio at itaque autem
+                asperiores perferendis ullam. Dignissimos cum sunt quidem vero fuga, necessitatibus nobis deserunt totam
+                provident, dolorum asperiores alias atque, officia iste nostrum.</p>
+            <footer>news 2</footer>
+        </article>
+        <article>
+            <header>Breacking news 3 </header>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid ratione neque, voluptatem expedita
+                nulla repellat atque eos ipsum ipsa alias assumenda a mollitia, reiciendis tenetur. Aperiam suscipit
+                fugiat beatae quod deserunt enim explicabo quam fuga ullam, non quos id laborum magnam eligendi
+                praesentium, eveniet labore deleniti! Officiis necessitatibus accusantium blanditiis, quibusdam
+                repellendus iusto, corporis molestiae molestias voluptate facilis, adipisci nam. Provident laudantium
+                maxime placeat quaerat nobis minima, corrupti consequuntur hic assumenda porro cupiditate tempore dolor
+                repellendus ex sit nesciunt exercitationem excepturi sequi quas. Id earum eligendi corporis repellat,
+                illo quaerat delectus aliquid fuga iure quasi eaque dolor at quo corrupti?</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste, minus? Quam nulla voluptatibus atque
+                dolor cum nemo amet assumenda? Cupiditate dicta incidunt cumque, iure ea distinctio at itaque autem
+                asperiores perferendis ullam. Dignissimos cum sunt quidem vero fuga, necessitatibus nobis deserunt totam
+                provident, dolorum asperiores alias atque, officia iste nostrum.</p>
+            <footer>news 3</footer>
+        </article>
+        <article>
+            <header>Breacking news 4 </header>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid ratione neque, voluptatem expedita
+                nulla repellat atque eos ipsum ipsa alias assumenda a mollitia, reiciendis tenetur. Aperiam suscipit
+                fugiat beatae quod deserunt enim explicabo quam fuga ullam, non quos id laborum magnam eligendi
+                praesentium, eveniet labore deleniti! Officiis necessitatibus accusantium blanditiis, quibusdam
+                repellendus iusto, corporis molestiae molestias voluptate facilis, adipisci nam. Provident laudantium
+                maxime placeat quaerat nobis minima, corrupti consequuntur hic assumenda porro cupiditate tempore dolor
+                repellendus ex sit nesciunt exercitationem excepturi sequi quas. Id earum eligendi corporis repellat,
+                illo quaerat delectus aliquid fuga iure quasi eaque dolor at quo corrupti?</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste, minus? Quam nulla voluptatibus atque
+                dolor cum nemo amet assumenda? Cupiditate dicta incidunt cumque, iure ea distinctio at itaque autem
+                asperiores perferendis ullam. Dignissimos cum sunt quidem vero fuga, necessitatibus nobis deserunt totam
+                provident, dolorum asperiores alias atque, officia iste nostrum.</p>
+            <footer>news 4</footer>
+        </article>
+        <article>
+            <header>Breacking news 5 </header>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid ratione neque, voluptatem expedita
+                nulla repellat atque eos ipsum ipsa alias assumenda a mollitia, reiciendis tenetur. Aperiam suscipit
+                fugiat beatae quod deserunt enim explicabo quam fuga ullam, non quos id laborum magnam eligendi
+                praesentium, eveniet labore deleniti! Officiis necessitatibus accusantium blanditiis, quibusdam
+                repellendus iusto, corporis molestiae molestias voluptate facilis, adipisci nam. Provident laudantium
+                maxime placeat quaerat nobis minima, corrupti consequuntur hic assumenda porro cupiditate tempore dolor
+                repellendus ex sit nesciunt exercitationem excepturi sequi quas. Id earum eligendi corporis repellat,
+                illo quaerat delectus aliquid fuga iure quasi eaque dolor at quo corrupti?</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste, minus? Quam nulla voluptatibus atque
+                dolor cum nemo amet assumenda? Cupiditate dicta incidunt cumque, iure ea distinctio at itaque autem
+                asperiores perferendis ullam. Dignissimos cum sunt quidem vero fuga, necessitatibus nobis deserunt totam
+                provident, dolorum asperiores alias atque, officia iste nostrum.</p>
+            <footer>news 5</footer>
+        </article>
+    </section>
+</body>
+
+</html>

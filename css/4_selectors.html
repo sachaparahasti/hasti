@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+        * {
+            margin: 0px;
+            letter-spacing: 1px;
+            padding: 0px;
+            /* include border inside height & width */
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: "Montserrat", sans-serif;
+            font-optical-sizing: auto;
+        }
+
+        /* id selector style */
+        #site-header {
+            display: flex;
+
+            /* distribute space between children horizontally work only if display is flex */
+            justify-content: space-between;
+            background-color: chocolate;
+            position: sticky;
+            top: 0px;
+            left: 0px;
+        }
+
+        #menu {
+            display: flex;
+            list-style-type: none;
+            gap: 20px;
+
+            /* vertical alignment work only if display is flex */
+            align-items: center;
+        }
+        /* class selector style */
+        .menu-item {
+            background-color: brown;
+            color: white;
+            border: 1px solid white;
+            padding: 10px;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 15px;
+        }
+
+        #content>header,
+        #content>footer {
+            text-align: center;
+            margin: 20px 0px;
+        }
+
+        #content>header {
+            font-size: 2rem;
+        }
+
+        #site-footer {
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: space-around;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            position: sticky;
+            left: 0px;
+            bottom: 0px;
+        }
+
+        /* descendent of site footer */
+        #site-footer a {
+            color: white;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        /* this style applies to h2 tag inside div inside site-footer */
+        #site-footer>div>h1 {
+            font-size: 1.5rem;
+            border-bottom: 5px double white;
+            padding-bottom: 5px;
+        }
+
+        #site-footer>div>h3 {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            padding: 10px 0px;
+        }
+
+        #site-footer>div>ul {
+            line-height: 150%;
+            list-style-image: url(images/pic.png);
+        }
+
+        #content>span {
+            display: flex;
+            /* without flex-wrap width child will not work */
+            flex-wrap: wrap;
+        }
+
+        #content>span>article {
+            width: calc(100vw / 3 - 20px);
+            border: 1px solid black;
+            background-color: #f6d4be;
+            margin: 5px;
+            display: flex;
+            flex-direction: column;
+           box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+
+        }
+
+        #content>span>article>header,
+        #content>span>article>footer {
+            background-color: brown;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 1.1rem;
+            height: 90px;
+        }
+
+        #content>span>article>span {
+            padding: 5px 10px;
+            height: calc(100% - 140px);
+        }
+
+        #content>span>article>span>p {
+            text-align: justify;
+            margin-bottom: 20px;
+            text-indent: 50px;
+        }
+
+        #content>span>article>footer {
+            letter-spacing: 2px;
+        }
+
+        #content>span>article>p {
+            padding: 10px;
+        }
+
+        header,
+        h1 {
+            font-family: "Playfair Display", serif;
+            font-optical-sizing: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="site-header">
+        <img src="images/study.png" height="70px">
+        <ul id="menu">
+            <li><a class="menu-item" href="#">Home</a></li>
+            <li><a class="menu-item" href="#">About us</a></li>
+            <li><a class="menu-item" href="#">Products</a></li>
+            <li><a class="menu-item" href="#">Services</a></li>
+            <li><a class="menu-item" href="#">Contact us</a></li>
+        </ul>
+    </header>
+    <section id="content">
+        <header>
+            About the easylearn academy
+        </header>
+        <span>
+            <article>
+                <header>
+                    <h2>What is the MERN Stack?</h2>
+                </header>
+                <span>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam commodi magnam aspernatur neque,
+                        praesentium quod velit magni nostrum. Dolorum sunt rerum praesentium, commodi omnis eos,
+                        laboriosam,
+                        nihil ullam beatae laborum aperiam consectetur ea repellat odio optio harum illo voluptas
+                        aspernatur
+                        alias amet quod expedita quasi! Error, accusamus officiis quibusdam deserunt eum cumque illum,
+                        officia optio eius culpa excepturi quisquam ducimus nisi hic qui in, ex vero harum iusto est
+                        ullam
+                        nihil corrupti obcaecati! Vel culpa voluptatibus aspernatur quaerat cum. Dolore molestias cumque
+                        rerum sunt delectus porro modi quam veniam? Error, quisquam! Porro ratione ea quis officiis, a
+                        consectetur aperiam ipsam?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae
+                        impedit
+                        obcaecati asperiores
+                        inventore tempora itaque provident tempore nam iure, reiciendis, placeat vero, consequuntur
+                        excepturi perferendis laudantium laborum illo saepe? Necessitatibus ipsum molestias quam! Ab,
+                        doloribus vero! Omnis illo alias placeat itaque sapiente. Sit quisquam veritatis perferendis
+                        expedita reiciendis nam enim!The MERN stack is a popular set of technologies used to build
+                        full-stack web applications. It
+                        includes four major components: MongoDB, Express.js, React.js, and Node.js. Together, they allow
+                        developers to use JavaScript for both the frontend and backend, enabling a streamlined
+                        development
+                        process.</p>
+                </span>
+                <footer>
+                    <p><strong>Tip:</strong> All MERN components use JavaScript, making it ideal for JS developers.</p>
+                </footer>
+            </article>
+
+            <article>
+                <header>
+                    <h2>Why Should You Learn MERN Stack?</h2>
+                </header>
+                <span>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum blanditiis, cupiditate doloribus
+                        corrupti, quos officia totam est incidunt sequi expedita nostrum quas repellendus repudiandae,
+                        provident magnam molestiae hic autem explicabo saepe laborum ab. Enim animi maiores dolorum sunt
+                        modi consequuntur iure quos aut mollitia natus veniam, amet unde voluptates omnis at sequi? Rem
+                        ratione nam, tempore saepe, asperiores facere porro accusamus quod assumenda reiciendis
+                        dignissimos!
+                        Fugit fugiat suscipit ad quod sapiente itaque beatae totam in quidem ab, illum perspiciatis
+                        ducimus
+                        iure! Cupiditate quos consequatur maxime omnis nostrum ipsam, suscipit tenetur illum perferendis
+                        velit, hic assumenda tempore. Vel sed dolores labore. Learning the MERN stack opens up job
+                        opportunities as many companies prefer developers who can handle
+                        both frontend and backend tasks. React is widely used for user interfaces, and Node.js powers
+                        fast,
+                        scalable backend servers.</p>
+                </span>
+                <footer>
+                    <p><em>Did you know?</em> MERN is used by startups and large companies alike for building dynamic
+                        web apps.</p>
+                </footer>
+            </article>
+
+            <article>
+                <header>
+                    <h2>Why Should You Learn MERN Stack?</h2>
+                </header>
+                <span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet magni magnam est error aperiam
+                        necessitatibus tempora labore possimus doloremque, minima quo perferendis? Autem ab et dicta.
+                        Atque
+                        ratione repellat aut accusantium molestiae odio praesentium eos alias deserunt voluptates dolore
+                        magni ad non enim ex, fugiat, maiores cumque sequi doloribus recusandae delectus. Quo dolores a
+                        impedit ratione veniam, facilis architecto beatae iusto odio sint commodi ad. Consectetur ipsam,
+                        alias minus architecto, enim eaque rem laborum fugit nulla, explicabo nesciunt illo non.
+                        Exercitationem asperiores architecto sed, sunt autem repellat tempora ratione facilis ipsum!
+                        Nobis
+                        deserunt delectus necessitatibus repellat excepturi voluptatum quis eveniet?Mastering the MERN
+                        stack
+                        gives you a powerful skillset to develop complete web applications. It’s an
+                        excellent choice for those who want to become full-stack JavaScript developers.</p>
+                </span>
+                <footer>
+                    <p>Start learning MERN today and build modern, responsive, full-featured web applications!</p>
+                </footer>
+            </article>
+
+            <article>
+                <header>
+                    <h2>Why Should You Learn MERN Stack?</h2>
+                </header>
+                <span>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum blanditiis, cupiditate doloribus
+                        corrupti, quos officia totam est incidunt sequi expedita nostrum quas repellendus repudiandae,
+                        provident magnam molestiae hic autem explicabo saepe laborum ab. Enim animi maiores dolorum sunt
+                        modi consequuntur iure quos aut mollitia natus veniam, amet unde voluptates omnis at sequi? Rem
+                        ratione nam, tempore saepe, asperiores facere porro accusamus quod assumenda reiciendis
+                        dignissimos!
+                        Fugit fugiat suscipit ad quod sapiente itaque beatae totam in quidem ab, illum perspiciatis
+                        ducimus
+                        iure! Cupiditate quos consequatur maxime omnis nostrum ipsam, suscipit tenetur illum perferendis
+                        velit, hic assumenda tempore. Vel sed dolores labore. Learning the MERN stack opens up job
+                        opportunities as many companies prefer developers who can handle
+                        both frontend and backend tasks. React is widely used for user interfaces, and Node.js powers
+                        fast,
+                        scalable backend servers.</p>
+                </span>
+                <footer>
+                    <p><em>Did you know?</em> MERN is used by startups and large companies alike for building dynamic
+                        web apps.</p>
+                </footer>
+            </article>
+
+            <article>
+                <header>
+                    <h2>Why Should You Learn MERN Stack?</h2>
+                </header>
+                <span>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum blanditiis, cupiditate doloribus
+                        corrupti, quos officia totam est incidunt sequi expedita nostrum quas repellendus repudiandae,
+                        provident magnam molestiae hic autem explicabo saepe laborum ab. Enim animi maiores dolorum sunt
+                        modi consequuntur iure quos aut mollitia natus veniam, amet unde voluptates omnis at sequi? Rem
+                        ratione nam, tempore saepe, asperiores facere porro accusamus quod assumenda reiciendis
+                        dignissimos!
+                        Fugit fugiat suscipit ad quod sapiente itaque beatae totam in quidem ab, illum perspiciatis
+                        ducimus
+                        iure! Cupiditate quos consequatur maxime omnis nostrum ipsam, suscipit tenetur illum perferendis
+                        velit, hic assumenda tempore. Vel sed dolores labore. Learning the MERN stack opens up job
+                        opportunities as many companies prefer developers who can handle
+                        both frontend and backend tasks. React is widely used for user interfaces, and Node.js powers
+                        fast,
+                        scalable backend servers.</p>
+                </span>
+                <footer>
+                    <p><em>Did you know?</em> MERN is used by startups and large companies alike for building dynamic
+                        web apps.</p>
+                </footer>
+            </article>
+
+        </span>
+    </section>
+    <footer id="site-footer">
+        <div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact us</a></li>
+            </ul>
+        </div>
+        <div>
+            <h1>Address</h1>
+            <h3>D,124</h3>
+            darshan style,
+            Adhewada
+            <br /> Bhavnagar
+        </div>
+        <div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact us</a></li>
+            </ul>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            letter-spacing: 1px;
+        }
+
+        #site>div {
+            border: 1px solid black;
+        }
+
+        #site {
+            display: grid;
+            height: 100vh;
+        }
+
+        /*  ##Device = Most of the Smartphones Mobiles (Portrait) ##Screen = B/w 320px to 479px */
+        @media (min-width: 320px) and (max-width: 767px) {
+
+            /* code in this block will be applied only if device width>320 and <480 */
+            #site {
+                grid-template-columns: 100%;
+                grid-template-rows: 50px auto 50px;
+                grid-template-areas: "site_header" "main" "site_footer";
+            }
+        }
+
+        /* ##Device = Tablets, Ipads (portrait) ##Screen = B/w 768px to 1024px */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            /* code in this block will be applied only if device width>768 and <1024 */
+        }
+
+        /* ##Device = Laptops, Desktops ##Screen = B/w 1025px to 1280px*/
+        @media (min-width: 1025px) and (max-width: 1280px) {
+
+            /* code in this block will be applied only if device width>1025 and <1280 */
+            #site {
+                grid-template-columns: 100%;
+                grid-template-rows: 50px auto 50px;
+                grid-template-areas:
+                    "site_header "
+                    " main"
+                    "site_footer ";
+            }
+        }
+
+        /* ##Device = Desktops ##Screen = 1281px to higher resolution desktop */
+        @media (min-width: 1281px) {
+
+            /* code in this block will be applied only if device width>1281 */
+            #site {
+                grid-template-columns: 100%;
+                grid-template-rows: 100px auto 50px;
+                grid-template-areas:
+                    "site_header "
+                    " main "
+                    "site_footer  ";
+            }
+        }
+
+        #site_header {
+            grid-area: site_header;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #687FE5;
+            color: #EBD6FB;
+            position: sticky;
+        }
+
+        #site_header>span {
+            display: flex;
+            align-items: center;
+            background-color: #f7bab1;
+        }
+
+        #site_header>ul {
+            display: flex;
+            list-style-type: none;
+            margin: 20px;
+            gap: 10px;
+        }
+
+        #site_header>ul>li>a:link,
+        #site_header>ul>li>a:visited {
+            display: inline-block;
+            width: 160px;
+            height: 40px;
+            padding: 10px 15px;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: #687FE5;
+            background-color: #EBD6FB;
+            border-top-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            text-align: center;
+        }
+
+        #site_header>ul>li>a:hover {
+            font-size: large;
+            background-color: aquamarine;
+            border-top-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+            border-top-right-radius: 20px;
+            border-bottom-left-radius: 20px;
+        }
+
+        #main {
+            grid-area: main;
+        }
+
+        #site_footer {
+            grid-area: site_footer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="site">
+        <div id="site_header">
+            <span>
+                <h2>theobroma</h2>
+            </span>
+            <ul>
+                <li><a href="1_basic.html">Home</a></li>
+                <li><a href="2_basic.html">About Us</a></li>
+                <li><a href="3_selector.html">Products</a></li>
+                <li><a href="4_selectors.html">Services</a></li>
+                <li><a href="5_inline_css.html">Contact Us</a></li>
+            </ul>
+        </div>
+        <div id="main">Main</div>
+        <div id="site_footer">Footer</div>
+    </div>
+</body>
+
+</html>

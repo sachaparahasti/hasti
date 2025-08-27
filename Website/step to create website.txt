@@ -1,0 +1,37 @@
+1) findout website similier to website you are developing. 
+2) make list of website for future references 
+    1) https://krishnapaverblock.com
+    2) https://www.paversindia.com
+    3) https://asianstones.com
+    4) https://vyaratiles.in
+    5) https://www.sriganapathypavers.com
+
+3) download  templates using httrack
+4) make list of pages in website 
+    Home
+        Slider
+
+        Introduction
+            Our Achivements
+                Years of Experience
+                Projects Done
+                Happy Clients
+            Our Products
+            Our Latest Projects
+
+            Customer Testimonials 
+            Footer
+    About Us
+            https://krishnapaverblock.com/about-us
+    Products
+            product name
+            product photo
+            https://krishnapaverblock.com/product-category/paverblock/steelmold-paverblock
+            product details
+
+    Latest Projects
+            images
+
+    Contact us
+
+5)  copy download theme into website folder

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>conditional operator</h1>
+    <script>
+        var cartoon= `<table border="1" cellpadding="8">
+
+         <tr>
+      <td>Tom and Jerry</td>
+      <td>Scooby-Doo</td>
+      <td>Doraemon</td>
+      <td>Chhota Bheem</td>
+      <td>Shinchan</td>
+    </tr>
+    <tr>
+      <td>Mickey Mouse</td>
+      <td>Donald Duck</td>
+      <td>Goofy</td>
+      <td>DuckTales</td>
+      <td>Looney Tunes</td>
+    </tr>
+    <tr>
+      <td>Ben 10</td>
+      <td>Pokémon</td>
+      <td>Dragon Ball Z</td>
+      <td>Naruto</td>
+      <td>Avatar: The Last Airbender</td>
+    </tr>
+    <tr>
+      <td>Powerpuff Girls</td>
+      <td>SpongeBob SquarePants</td>
+      <td>Phineas and Ferb</td>
+      <td>Oggy and the Cockroaches</td>
+      <td>Motu Patlu</td>
+    </tr>
+    </table>`;
+     var movie = `<table border="1" cellpadding="8">
+        <tr>
+      <td>Avatar</td>
+      <td>Titanic</td>
+      <td>The Lion King</td>
+      <td>Inception</td>
+      <td>The Avengers</td>
+    </tr>
+    <tr>
+      <td>Jurassic Park</td>
+      <td>Frozen</td>
+      <td>Spider-Man</td>
+      <td>Iron Man</td>
+      <td>Black Panther</td>
+    </tr>
+    <tr>
+      <td>The Dark Knight</td>
+      <td>Harry Potter</td>
+      <td>Frozen II</td>
+      <td>Finding Nemo</td>
+      <td>Shrek</td>
+    </tr>
+    <tr>
+      <td>Minions</td>
+      <td>Kung Fu Panda</td>
+      <td>Toy Story</td>
+      <td>Aladdin</td>
+      <td>Coco</td>
+    </tr>
+  </table>`;
+    var age = parseInt(prompt("Enter your age ",1));
+    // if(age < 18)
+    // {
+    //     document.write(cartoon);
+    // }
+    // else
+    // {
+    //     document.write(movie);
+    // }
+    document.write((age<18)?cartoon:movie);
+    </script>
+</body>
+</html>

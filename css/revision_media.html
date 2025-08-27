@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            letter-spacing: 1px;
+        }
+
+        section {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        section>article {
+            text-align: justify;
+        }
+
+        section>article>p {
+            text-indent: 20px;
+        }
+
+        /*  ##Device = Most of the Smartphones Mobiles (Portrait) ##Screen = B/w 320px to 479px */
+        @media (min-width: 320px) and (max-width: 480px) {
+            /* code in this block will be applied only if device width>320 and <480 */
+            body{
+                background-color: aquamarine;
+            }
+            section>article
+            {
+                width: calc(100% - 40px);
+                margin: 10px 20px;
+                border: 1px solid black;
+                padding: 10px;
+            }
+        }
+
+        /* ##Device = Low Resolution Tablets,  ##Screen = B/w 481px to 767px */
+        @media (min-width: 481px) and (max-width: 767px) {
+            /* code in this block will be applied only if device width>481 and <767 */
+            body{
+                background-color: beige;
+
+            }
+            section>article
+            {
+                width: calc(50% - 20px);
+                margin: 10px 4px;
+                border: 1px solid black;
+                padding: 10px;
+            } 
+        }
+
+        /* ##Device = Tablets, Ipads (portrait) ##Screen = B/w 768px to 1024px */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            /* code in this block will be applied only if device width>768 and <1024 */
+            body{
+                background-color:blanchedalmond;
+
+            }
+            section>article
+            {
+                width: calc(33.33% - 18px);
+                margin: 10px 3px;
+                border: 1px solid black;
+                padding: 10px;
+            } 
+        }
+
+        /* ##Device = Laptops, Desktops ##Screen = B/w 1025px to 1280px*/
+        @media (min-width: 1025px) and (max-width: 1280px) {
+            /* code in this block will be applied only if device width>1025 and <1280 */
+            body{
+                background-color: beige;
+
+            }
+            section>article
+            {
+                width: calc(25% - 16px);
+                margin: 10px 4px;
+                border: 1px solid black;
+                padding: 10px;
+            } 
+        }
+
+        /* ##Device = Desktops ##Screen = 1281px to higher resolution desktop */
+        @media (min-width: 1281px) {
+            /* code in this block will be applied only if device width>1281 */
+            body{
+                background-color: beige;
+
+            }
+            section>article
+            {
+                width: calc(20% - 25px);
+                margin: 10px 5px;
+                border: 1px solid black;
+                padding: 10px;
+            } 
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <article>
+            <header>The Last Light 1</header>
+            <p>
+                In a distant world consumed by eternal night, a small village clung to the memory of sunlight.
+                Every home guarded a single ember—passed down through generations, believed to be the last spark of the
+                sun.
+                When the embers began to die, a blind girl named Lira claimed she could see a new light beyond the dark
+                mountains. Mocked but undeterred, she set off alone, guided by faith and the warmth in her heart.
+            </p>
+            <p>
+                Days later, as despair swallowed the village, a golden glow crept over the horizon. Lira
+                returned, leading a dawn never seen before. Light had returned—carried by belief.
+            </p>
+        </article>
+        <article>
+            <header>Doraemon and the Time Seed 2</header>
+            <p>One day, Nobita found an old seed in Doraemon's gadget drawer labeled “Time Seed.” Curious, he
+                planted it in the backyard. Instantly, a tree shot up, growing fruits that showed glimpses of the future
+                when touched. Nobita saw himself as a successful scientist, but also saw a lonely life without his
+                friends.</p>
+            <p>Worried, he rushed to Doraemon, who explained that the future can always change. Inspired,
+                Nobita shared the fruits with his friends and promised to stay close to them. With Doraemon's help, he
+                began
+                working harder—not just for success, but for happiness with the people he cared about.</p>
+        </article>
+        <article>
+            <header>The Invisible Painter 3</header>
+            <p>In a quiet town, a boy named Arin painted with invisible colors—no one could see his art, but
+                he believed it was beautiful. While others laughed, he filled walls, trees, and skies with colors only
+                he
+                could feel. Every stroke carried his dreams, his hopes, and the magic he saw in the world.</p>
+            <p>One day, a stranger passed through town and gasped at Arin's wall. “Who painted this?” she
+                cried, seeing what others couldn't. Slowly, more people began to see the colors too. Arin's belief had
+                made
+                the invisible visible. His idea changed the way the world saw beauty.</p>
+        </article>
+        <article>
+            <header>The Seed of an Idea 4</header>
+            <p>In a small village, a boy named Kavi watched birds build a nest using twigs and threads.
+                Inspired, he thought, “If birds can build homes without hands, why can't I create something useful too?”
+                He
+                began collecting broken tools, wires, and wood, dreaming of building a machine to help farmers in his
+                village.</p>
+            <p>Everyone laughed at his strange idea, but Kavi kept working. Months later, he unveiled a
+                simple machine that made planting seeds faster and easier. His idea, once ignored, changed many lives.
+                From
+                one small thought, a big difference grew—proving that great things often start with one simple idea.</p>
+        </article>
+        <article>
+            <header>The Brave Little Sparrow 5</header>
+            <p>In a quiet forest, a little sparrow named Pip dreamed of flying beyond the tallest trees. While
+                other birds were happy staying close to home, Pip wanted to see the world. One morning, he gathered
+                courage
+                and soared higher than ever before, facing strong winds and dark clouds along the way.</p>
+            <p>After days of travel, Pip found a valley filled with fruits, fresh water, and warm sunshine. He
+                flew back to his forest and led the other birds to the new land. Pip s bravery gave his flock a better
+                life—proving that even the smallest bird can make a big difference.</p>
+        </article>
+
+    </section>
+</body>
+
+</html>
