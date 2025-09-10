@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Level</title>
+</head>
+<body>
+    <h1>Single Level Inheritance </h1>
+    <form action="" onsubmit="return calculateBytes();">
+        <input type="number" id="bytes" required />
+        <input type="submit" value="Calculate Bytes" />
+    </form>
+    <h2 id="result">
+
+    </h2>
+    <script>
+        class KB{
+            getkb(kb){
+                let byte=kb*1024;
+                return byte;
+            }
+        }
+        class MB extends KB{
+            constructor(mb){
+                super();
+                this.mb=mb;
+            }
+            getmb(){
+                let bytes=super.getkb(this.mb*1024);
+                return bytes;
+            }
+        }
+        function calculateBytes(){
+            let Bytes=document.getElementById('bytes').value;
+            let m1=new MB(Bytes);
+            let bytes=m1.getmb();
+            document.getElementById('result').innerText=bytes;
+            return false;
+        }
+
+    </script>
+</body>
+</html>
