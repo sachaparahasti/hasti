@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Score Card</title>
+    <style>
+        .card {
+            width: calc(100vw/4);
+            border: 2px solid blue;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+            box-shadow: 5px 5px 5px;
+            margin-right: 20px;
+        }
+
+        .card div {
+            padding: 10px 0;
+            border-bottom: 2px solid black;
+            text-align: left;
+        }
+
+        .card div:last-child {
+            border-bottom: none;
+        }
+
+        .label {
+            font-weight: bold;
+        }
+
+        #team {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Create object using 4th way (class)</h1>
+    <section id="team"></section>
+
+    <script>
+        // ✅ 4th way: class
+        class Player {
+            constructor(name, position) {
+                this.name = name;
+                this.position = position;
+                this.run = 0;
+                this.ball = 0;
+            }
+
+            // render player card
+            render() {
+                const card = document.createElement("div");
+                card.classList.add("card");
+
+                card.innerHTML = `
+          <div><span class="label">Name:</span> ${this.name}</div>
+          <div><span class="label">Position:</span> ${this.position}</div>
+          <div><span class="label">Run:</span> <span class="run">${this.run}</span></div>
+          <div><span class="label">Ball:</span> <span class="ball">${this.ball}</span></div>
+          <div class="buttons">
+              <button>0</button>
+              <button>1</button>
+              <button>2</button>
+              <button>3</button>
+              <button>4</button>
+              <button>6</button>
+          </div>
+          <div><span class="label">Strike Rate:</span> <span class="sr">0.00</span></div>
+        `;
+                // handle button clicks
+                card.querySelectorAll("button").forEach(btn => {
+                    btn.addEventListener("click", () => {
+                        let runs = parseInt(btn.textContent);
+                        this.run += runs;
+                        this.ball++;
+
+                        // update UI
+                        card.querySelector(".run").textContent = this.run;
+                        card.querySelector(".ball").textContent = this.ball;
+                        card.querySelector(".sr").textContent = (this.run / this.ball * 100).toFixed(2);
+                    });
+                });
+
+                document.getElementById("team").appendChild(card);
+            }
+        }
+
+        // ✅ Create objects (players)
+        const p1 = new Player("Shubman Gill", 1);
+        const p2 = new Player("Virat Kohli", 2);
+
+        p1.render();
+        p2.render();
+    </script>
+</body>
+
+</html>

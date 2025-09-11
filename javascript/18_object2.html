@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>2nd technique to create object</h2>
+    <table border="1" width="50px" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Weight</th>
+                <th>Quantity</th>
+                <th>Price per gram</th>
+            </tr>
+        </thead>
+        <tbody id="shop"></tbody>
+    </table>
+    <script>
+        var product = new Object({
+            name: '',
+            price: 0,
+            weight: 0.0,
+            quantity: 0,
+            display: function () {
+                let pricePerGram = this.price / this.quantity;
+                document.getElementById('shop').innerHTML += `<tr>
+                <td>${this.name}</td>
+                <td>${this.price}</td>  
+                <td>${this.weight}</td>
+                <td>${this.quantity}</td>
+                <td>${pricePerGram}</td>
+                </tr>`;
+            }
+        });
+
+        var p1 = product;
+        p1.name = "Apple";
+        p1.price = 200;
+        p1.weight = 1.5;
+        p1.quantity = 1500;
+        p1.display();
+
+        var p2 = product;
+        p2.name = "Strawberry";
+        p2.price = 150;
+        p2.weight = 0.5;
+        p2.quantity = 500;
+        p2.display();
+
+        var p3 = product;
+        p3.name = "Pain Apple"; 
+        p3.price = 50;
+        p3.weight = 1.0;
+        p3.quantity = 1000;
+        p3.display();
+
+        var p4 = product;
+        p4.name = "Watermelon";
+        p4.price = 60;
+        p4.weight = 1.2;
+        p4.quantity = 1200;
+        p4.display();
+
+        var p5 = product;
+        p5.name = "Grapes";
+        p5.price = 90;
+        p5.weight = 0.8;
+        p5.quantity = 800;
+        p5.display();
+    </script>
+</body>
+
+</html>

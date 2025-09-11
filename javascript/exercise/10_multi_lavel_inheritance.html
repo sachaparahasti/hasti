@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi Level Inheritance</title>
+</head>
+
+<body>
+    <h1>Multi Level Inheritance</h1>
+    <form action="" onsubmit="return calculateBytes();">
+        <input type="number" id="bytes" placeholder="Enter MB" required />
+        <input type="submit" value="Calculate" />
+    </form>
+
+    <h2 id="result"></h2>
+
+    <script>
+        // Parent Class
+        class KB {
+            getkb(kb) {
+                let byte = kb * 1024;
+                return byte;
+            }
+        }
+        // Child of KB
+        class MB extends KB {
+            constructor(mb) {
+                super();
+                this.mb = mb;
+            }
+            getmb() {
+                let bytes = super.getkb(this.mb * 1024); // use KB method
+                return bytes;
+            }
+        }
+
+        // Child of MB
+        class GB extends MB {
+            constructor(gb) {
+                super(gb);
+                this.gb = gb;
+            }
+            getgb() {
+                let bytes = super.getmb(this.gb * 1024); // use MB method
+                return bytes;
+            }
+        }
+
+        // Child of GB
+        class TB extends GB {
+            constructor(tb) {
+                super(tb);
+                this.tb = tb;
+            }
+            gettb() {
+                let bytes = super.getgb(this.tb * 1024);
+                return bytes;
+            }
+        }
+
+        function calculateBytes() {
+            let inputValue = document.getElementById('bytes').value;
+
+            let t1 = new TB(inputValue);
+            let kb = t1.getkb(inputValue);
+            let mb = t1.getmb();
+            let gb = t1.getgb();
+            let tb = t1.gettb();
+
+            document.getElementById('result').innerHTML = `
+                ${inputValue} = <br>
+                ${kb} Bytes (from KB)<br>
+                ${mb} Bytes (from MB)<br>
+                ${gb} Bytes (from GB)<br>
+                ${tb} Bytes (from TB)
+            `;
+
+            return false;
+        }
+    </script>
+</body>
+
+</html>

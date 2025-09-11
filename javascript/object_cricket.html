@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Players</title>
+    <style>
+        .card {
+            width: calc(100vw/4);
+            border: 2px solid blue;
+            padding: 15px;
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+            box-shadow: 5px 5px 5px gray;
+            margin: 10px;
+            border-radius: 10px;
+        }
+
+        .card div {
+            padding: 6px 0;
+            border-bottom: 1px solid #444;
+        }
+
+        .card div:last-child {
+            border-bottom: none;
+        }
+
+        .label {
+            font-weight: bold;
+        }
+
+        #team {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        button {
+            margin: 3px;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 6px;
+            background: #0f5c9b;
+            color: white;
+            cursor: pointer;
+        }
+
+        .over-box {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+            margin-top: 5px;
+        }
+
+        .ball-run {
+            padding: 3px 6px;
+            border: 1px solid #222;
+            border-radius: 5px;
+            min-width: 20px;
+            text-align: center;
+            background: #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Cricket Details</h1>
+    <section id="team"></section>
+
+    <script>
+        class Player {
+            constructor(name, position) {
+                this.name = name;
+                this.position = position;
+                this.runs = 0;
+                this.balls = 0;
+                this.currentOver = [];
+            }
+
+            add() {
+                const card = document.createElement("div");
+                card.classList.add("card");
+
+                card.innerHTML = `
+          <div><span class="label">Name:</span> <span class="pname">${this.name}</span></div>
+          <div><span class="label">Position:</span> <span class="pos">${this.position}</span></div>
+          <div><span class="label">Runs:</span> <span class="runs">${this.runs}</span></div>
+          <div><span class="label">Balls:</span> <span class="balls">${this.balls}</span></div>
+          <div>
+            <span class="label">Add Run:</span><br>
+            <button>0</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>6</button>
+          </div>
+          <div><span class="label">This Over:</span>
+            <div class="over-box"></div>
+          </div>
+          <div><span class="label">Strike Rate:</span> <span class="sr">0.00</span></div>
+        `;
+
+                var overBox = card.querySelector(".over-box");
+
+                // button click events
+                card.querySelectorAll("button").forEach(btn => {
+                    btn.addEventListener("click", () => {
+                        let run = parseInt(btn.textContent);
+                        this.runs += run;
+                        this.balls++;
+
+                        card.querySelector(".runs").textContent = this.runs;
+                        card.querySelector(".balls").textContent = this.balls;
+                        card.querySelector(".sr").textContent = ((this.runs / this.balls) * 100).toFixed(2);
+
+                        // track over   
+                        this.currentOver.push(run);
+                        const runBox = document.createElement("div");
+                        runBox.classList.add("ball-run");
+                        runBox.textContent = run;
+                        overBox.appendChild(runBox);
+
+                        if (this.currentOver.length === 6) {
+                            overBox.innerHTML = ""; // clear after 6 balls
+                            this.currentOver = [];
+                        }
+                    });
+                });
+
+                document.getElementById("team").appendChild(card);
+            }
+        }
+
+        // 11 Players
+        var p1 = new Player('Rohit Sharma', 1); p1.add();
+        var p2 = new Player('Virat Kohli', 2); p2.add();
+        var p3 = new Player('Shubhman Gill', 3); p3.add();
+        var p4 = new Player('Shreyas Iyer', 4); p4.add();
+        var p5 = new Player('Suryakumar Yadav', 5); p5.add();
+        var p6 = new Player('KL Rahul', 6); p6.add();
+        var p7 = new Player('Hardik Pandya', 7); p7.add();
+        var p8 = new Player('Ravindra Jadeja', 8); p8.add();
+        var p9 = new Player('Kuldeep Yadav', 9); p9.add();
+        var p10 = new Player('Jasprit Bumrah', 10); p10.add();
+        var p11 = new Player('Mohammed Siraj', 11); p11.add();
+    </script>
+</body>
+
+</html>

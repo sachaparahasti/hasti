@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Display The Credit Card Details</h1>
+    <table border="1" width="50%" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Card Number</th>
+                <th>Card Holder Name</th>
+                <th>Expiry Date</th>
+                <th>CVV</th>
+            </tr>
+        </thead>
+        <tbody id="bank"></tbody>
+    </table>
+    <script>
+        var bank = {
+            cardNo: 0,
+            cardHolderName: '',
+            expiryDate: "",
+            cvv: 0,
+            display: function () {
+                document.getElementById('bank').innerHTML += `<tr>
+                <td>${this.cardNo}</td>
+                <td>${this.cardHolderName}</td>
+                <td>${this.expiryDate}</td>
+                <td>${this.cvv}</td>
+            </tr>`;
+            }
+        };
+        var b1 = bank;
+        b1.cardNo = 1234567890123456;
+        b1.cardHolderName = "Sachapara hasti";
+        b1.expiryDate = "12/25";
+        b1.cvv = 123;
+        b1.display();
+
+        var b2 = bank;
+        b2.cardNo = 9876543210987654;
+        b2.cardHolderName = "Aayushi Gorasiya";
+        b2.expiryDate = "11/24";
+        b2.cvv = 456;
+        b2.display();
+
+        var b3 = bank;
+        b3.cardNo = 5555444433332222;
+        b3.cardHolderName = "Krisha Ghori";
+        b3.expiryDate = "08/25";
+        b3.cvv = 789;
+        b3.display();
+
+        var b4 = bank;
+        b4.cardNo = 4444333322221111;
+        b4.cardHolderName = "Krishn Patel";
+        b4.expiryDate = "01/27";
+        b4.cvv = 321;
+        b4.display();
+
+        var b5 = bank;
+        b5.cardNo = 6011556448578945;
+        b5.cardHolderName = "Hasti Maniya";
+        b5.expiryDate = "09/28";
+        b5.cvv = 654;
+        b5.display();
+
+    </script>
+
+</body>
+
+</html>

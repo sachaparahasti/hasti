@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Hybrid Inheritance : Shapes</h1>
+    <form action="" onsubmit="return calculate();">
+        <label>Enter length:</label>
+        <input type="number" id="length" required />
+        <label>Enter breadth:</label>
+        <input type="number" id="breadth" required />
+        <label>Enter base (for triangle):</label>
+        <input type="number" id="base" required />
+        <label>Enter height (for triangle):</label>
+        <input type="number" id="height" required />
+        <input type="submit" value="Calculate" />
+    </form>
+    <h2 id="result"></h2>
+    <h2 id="result2"></h2>
+    <h2 id="result3"></h2>
+
+    <script>
+        class Shape {
+            getArea() {
+                return 0;
+            }
+        }
+        class Rectangle extends Shape {
+            constructor(length, breadth) {
+                super();
+                this.length = length;
+                this.breadth = breadth;
+            }
+            getArea() {
+                return this.length * this.breadth;
+            }
+        }
+        class Square extends Rectangle {
+            constructor(side) {
+                super(side, side);
+            }
+        }
+        class Triangle extends Shape {
+            constructor(base, height) {
+                super();
+                this.height = height;
+                this.base = base;
+            }
+            getArea() {
+                return 0.5 * this.base * this.height;
+            }
+        }
+        function calculate(){
+            let length=parseFloat(document.getElementById('length').value);
+            let breadth=parseFloat(document.getElementById('breadth').value);
+            let base=parseFloat(document.getElementById('base').value);     
+            let triHeight=parseFloat(document.getElementById('height').value);
+
+            let rect =new Rectangle(length,breadth);
+            let square=new Square(length);
+            let tri=new Triangle(base,triHeight);
+
+            document.getElementById('result').innerHTML="Rectangle Area:"+rect.getArea();
+            document.getElementById('result2').innerHTML="Square Area:"+square.getArea();
+            document.getElementById('result3').innerHTML="Triangle Area:"+tri.getArea();
+
+            return false;
+        }
+    </script>
+</body>
+
+</html>

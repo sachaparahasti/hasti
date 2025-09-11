@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic Tac Toe - Fullscreen Layout</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .game {
+      background: #fff2;
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
+      color: white;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+      width: 320px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin: 15px 0;
+    }
+
+    .cell {
+      background: white;
+      color: #333;
+      height: 80px;
+      font-size: 2rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .cell:hover {
+      background: #f1f1f1;
+    }
+
+    .btn {
+      background: #ff4b2b;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      border: none;
+      padding: 10px;
+      border-radius: 8px;
+      width: 100%;
+      margin-top: 5px;
+    }
+
+    .status {
+      font-weight: bold;
+      margin-top: 8px;
+    }
+
+    .winner {
+      background: #4caf50 !important;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="game">
+    <h1>Tic Tac Toe</h1>
+
+    <input type="text" id="p1" placeholder="Player 1 Name">
+    <select id="sign">
+      <option>X</option>
+      <option>O</option>
+    </select>
+    <br />
+    <input type="text" id="p2" placeholder="Player 2 Name">
+    <button class="btn" id="start">Start Game</button>
+
+    <div id="info"></div>
+    <div class="grid" id="board">
+      <span class="cell"></span><span class="cell"></span><span class="cell"></span>
+      <span class="cell"></span><span class="cell"></span><span class="cell"></span>
+      <span class="cell"></span><span class="cell"></span><span class="cell"></span>
+    </div>
+    <div class="status" id="status"></div>
+    <button class="btn" id="reset">New Game</button>
+  </div>
+
+  <script>
+
+    // create a cell variable to select all cells
+    let cells = document.getElementsByTagName('span');
+
+    // create a status and info variable to show game status and info
+    let status = document.getElementById('status');
+    let info = document.getElementById('info');
+
+    // declare game variables
+    let board, current, p1, p2, s1, s2, active;
+
+    // winning combinations
+    let wins = [
+      [0, 1, 2], [3, 4, 5], [6, 7, 8], // rows
+      [0, 3, 6], [1, 4, 7], [2, 5, 8], // columns
+      [0, 4, 8], [2, 4, 6]             // diagonals
+    ];
+
+    // game start function
+    function startGame() {
+      // player names and signs
+      p1 = document.getElementById('p1').value;
+      p2 = document.getElementById('p2').value;
+      s1 = document.getElementById('sign').value;
+      if (s1 === 'X') {
+        s2 = 'O';
+      } else {
+        s2 = 'X';
+      } // auto set the second player's sign
+
+      //  board setup empty
+      board = Array(9).fill("");
+      current = s1;  // first player starts
+      active = true; // game active
+
+      // show info and status
+      info.textContent = p1 + "(" + s1 + ") vs " + p2 + "(" + s2 + ")";
+      status.textContent = current + "'s turn";
+
+      // clear all cells
+      for (let c of cells) {
+        c.textContent = "";
+        c.classList.remove('winner');  // remove winner highlight
+      }
+    }
+
+    // add click event for each cell
+    for (let i = 0; i < cells.length; i++) {
+      cells[i].onclick = function () {
+        if (!active || board[i]) return; // ignore if game inactive or cell filled
+
+        // mark the cell
+        board[i] = current;
+        this.innerHTML = current;
+
+        // check if current player won
+        if (checkWin()) {
+          if (current === s1) {
+            status.textContent = p1 + " Wins!";
+          } else {
+            status.textContent = p2 + " Wins!";
+          }
+          active = false; // stop game
+          return;
+        }
+        
+        // check if draw
+        if (checkDraw()) {
+          status.textContent = 'Game Draw!';
+          active = false;
+          return;
+        }
+
+        // change turn to next player
+        if (current === s1) {
+          current = s2;
+          status.textContent = p2 + "'s turn(" + current + ")";
+        } else {
+          current = s1;
+          status.textContent = p1 + "'s turn(" + current + ")";
+        }
+      };
+    }
+
+    // function to check draw 
+    function checkDraw() {
+      return board.every(v => v !== "");
+    }
+
+    // function to check win
+    function checkWin() {
+      for (let w of wins) {
+        if (board[w[0]] === current &&
+          board[w[1]] === current &&
+          board[w[2]] === current) {
+          // highlight winning cells
+          for (let j of w) {
+            cells[j].classList.add("winner");
+          }
+          return true;
+        }
+      }
+      return false;
+    }
+
+    // reset function for new game
+    function reset() {
+      document.getElementById("p1").value = "";   // clear player1 name
+      document.getElementById("p2").value = "";   // clear player2 name
+      document.getElementById("sign").value = "X";// default first sign
+      info.textContent = "";                       // clear info
+      status.textContent = 'Check Start Game To Play!'; // reset status
+
+      // clear all cells 
+      for (let c of cells) {
+        c.textContent = "";
+        c.classList.remove("winner");
+      }
+
+      active = false; // game inactive
+    }
+
+    //  buttons to functions create
+    document.getElementById("start").onclick = startGame;
+    document.getElementById("reset").onclick = reset;
+
+  </script>
+</body>
+
+</html>

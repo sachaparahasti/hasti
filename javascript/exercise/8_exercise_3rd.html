@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        article {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Movie Details</h1>
+    <form action="" method="post" onsubmit="return MovieDetails();">
+        <article>
+            <div>
+                <input type="text" id="name" placeholder="Name" required />
+            </div>
+            <div>
+                <input type="text" id="generation" placeholder="Generation" required />
+            </div>
+            <div>
+                <input type="text" id="duration" placeholder="Duration" required />
+            </div>
+            <div>
+                <input type="text" id="starCast" placeholder="Star Cast" required />
+            </div>
+            <div>
+                <input type="number" id="ticketPrice" placeholder="Ticket Price" required />
+            </div>
+            <div>
+                <input type="submit" id="submit" value="Insert Movie" />
+                <input type="reset" id="reset" value="Clear All" />
+            </div>
+        </article>
+    </form>
+    <table border="2" width="100%" cellpadding="10">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Name</th>
+                <th>Generation</th>
+                <th>Duration</th>
+                <th>Star Cast</th>
+                <th>Ticket Price</th>
+            </tr>
+        </thead>
+        <tbody id="movie"></tbody>
+    </table>
+    <script>
+        // global variable
+        var no = 1;
+        function MovieDetails() {
+            // new object
+            function movie(name, generation, duration, starCast, ticketPrice) {
+                this.name = name,
+                    this.generation = generation,
+                    this.duration = duration,
+                    this.starCast = starCast,
+                    this.ticketPrice = ticketPrice,
+                    console.log(this);
+                this.addRow = function () {
+                    document.getElementById('movie').innerHTML += `<tr>
+                    <td>${no++}</td>
+                    <td>${this.name}</td>
+                    <td>${this.generation}</td>
+                    <td>${this.duration}</td>
+                    <td>${this.starCast}</td>
+                    <td>${this.ticketPrice}</td>
+                </tr>`;
+                }   
+            }
+
+            var name = document.getElementById('name').value;
+            var generation = document.getElementById('generation').value;
+            var duration = document.getElementById('duration').value;
+            var starCast = document.getElementById('starCast').value;
+            var ticketPrice = document.getElementById('ticketPrice').value;
+            var m1 = new movie(name, generation, duration, starCast, ticketPrice);
+            m1.addRow();
+
+            document.getElementById('name').value = '';
+            document.getElementById('generation').value = '';
+            document.getElementById('duration').value = '';
+            document.getElementById('starCast').value = '';
+            document.getElementById('ticketPrice').value = '';
+            return false;
+        }
+
+
+    </script>
+</body>
+
+</html>

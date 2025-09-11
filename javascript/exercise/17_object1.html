@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>object using 1st method</h1>
+    <b>use console</b>
+    <script>
+        // create object
+        var MyMath = {
+            // property/state
+            num1: 10,
+            num2: 2,
+            add: function () {
+                let result = this.num1 + this.num2;
+                console.log("Addition is =" + result);
+            },
+            sub: function () {
+                let reset = this.num1 - this.num2;
+                console.log("Subtraction is =" + reset);
+            },
+            mul: function () {
+                let resu = this.num1 * this.num2;
+                console.log("Multiplication is =" + resu);
+            },
+            div: function () {
+                let res = this.num1 / this.num2;
+                console.log("Division is =" + res);
+            },
+            display: function () {
+                console.log(this.num1, this.num2);
+            }
+        };
+        MyMath.add();
+        MyMath.sub();
+        MyMath.mul();
+        MyMath.div();
+        MyMath.display();
+        MyMath.display();
+    </script>
+</body>
+
+</html>
