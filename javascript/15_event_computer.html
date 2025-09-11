@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe - Player vs Computer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .game {
+            background: #fff2;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            width: 320px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin: 15px 0;
+        }
+
+        .cell {
+            background: white;
+            color: #333;
+            height: 80px;
+            font-size: 2rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .cell:hover {
+            background: #f1f1f1;
+        }
+
+        .btn {
+            background: #ff4b2b;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        .status {
+            font-weight: bold;
+            margin-top: 8px;
+        }
+
+        .winner {
+            background: #4caf50 !important;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="game">
+        <h1>Tic Tac Toe</h1>
+
+        <input type="text" id="p1" placeholder="Your Name">
+        <select id="sign">
+            <option>X</option>
+            <option>O</option>
+        </select>
+        <button class="btn" id="start">Start Game</button>
+
+        <div id="info"></div>
+        <div class="grid" id="board">
+            <span class="cell"></span><span class="cell"></span><span class="cell"></span>
+            <span class="cell"></span><span class="cell"></span><span class="cell"></span>
+            <span class="cell"></span><span class="cell"></span><span class="cell"></span>
+        </div>
+        <div class="status" id="status"></div>
+        <button class="btn" id="reset">New Game</button>
+    </div>
+
+    <script>
+        let cells = document.getElementsByTagName('span');
+        let status = document.getElementById('status');
+        let info = document.getElementById('info');
+
+        let board, current, p1, s1, s2, active;
+        let wins = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8],
+            [0, 3, 6], [1, 4, 7], [2, 5, 8],
+            [0, 4, 8], [2, 4, 6]
+        ];
+
+        function startGame() {
+            p1 = document.getElementById('p1').value || "Player 1";
+            s1 = document.getElementById('sign').value;
+            s2 = (s1 === 'X') ? 'O' : 'X';
+
+            board = Array(9).fill("");
+            current = s1;
+            active = true;
+
+            info.textContent = p1 + " (" + s1 + ") vs Computer (" + s2 + ")";
+            status.textContent = p1 + "'s turn (" + s1 + ")";
+
+            for (let c of cells) {
+                c.textContent = "";
+                c.classList.remove('winner');
+            }
+        }
+
+        for (let i = 0; i < cells.length; i++) {
+            cells[i].onclick = function () {
+                if (!active || board[i] || current !== s1) return;
+
+                board[i] = current;
+                this.innerHTML = current;
+
+                if (checkWin()) {
+                    status.textContent = p1 + " Wins!";
+                    active = false;
+                    return;
+                }
+                if (checkDraw()) {
+                    status.textContent = 'Game Draw!';
+                    active = false;
+                    return;
+                }
+
+                current = s2;
+                status.textContent = "Computer's turn (" + current + ")";
+                setTimeout(computerMove, 600);
+            };
+        }
+
+        function computerMove() {
+            // Create a list of empty cells
+            let emptyCells = [];
+            for (let i = 0; i < board.length; i++) {
+                if (board[i] === "") {
+                    emptyCells.push(i);
+                }
+            }
+
+            // If no empty cells left, stop
+            if (emptyCells.length === 0) return;
+
+            // Pick a random empty cell
+            let move = emptyCells[Math.floor(Math.random() * emptyCells.length)];
+
+            // Place the computer's move
+            board[move] = current;
+            cells[move].innerHTML = current;
+
+            // Check for win
+            if (checkWin()) {
+                status.textContent = "Computer Wins!";
+                active = false;
+                return;
+            }
+
+            // Check for draw
+            if (checkDraw()) {
+                status.textContent = "Game Draw!";
+                active = false;
+                return;
+            }
+
+            // Now give turn back to the player
+            current = s1;
+            status.textContent = p1 + "'s turn (" + current + ")";
+        }
+
+
+        function checkDraw() {
+            return board.every(v => v !== "");
+        }
+
+        function checkWin() {
+            for (let w of wins) {
+                if (board[w[0]] === current && 
+                board[w[1]] === current && 
+                board[w[2]] === current) {
+                    for (let j of w) {
+                        cells[j].classList.add("winner");
+                    }
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function reset() {
+            document.getElementById("p1").value = "";
+            document.getElementById("sign").value = "X";
+            info.textContent = "";
+            status.textContent = 'Click "Start Game" to Play!';
+            for (let c of cells) {
+                c.textContent = "";
+                c.classList.remove("winner");
+            }
+            active = false;
+        }
+
+        document.getElementById("start").onclick = startGame;
+        document.getElementById("reset").onclick = reset;
+    </script>
+</body>
+
+</html>
