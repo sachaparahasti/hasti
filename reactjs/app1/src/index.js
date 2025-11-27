@@ -12,7 +12,7 @@ var output=(<div>
   <hr/>
     <h2 className='p1'>using expression</h2>
     <ul className='p2'>
-      <li>Addition123 {num1+num2}</li>
+      <li>Addition {num1+num2}</li>
       <li>Subtraction {num1-num2}</li>
       <li>Division {division}</li>
       <li>Multiplication {num1*num2}</li>
