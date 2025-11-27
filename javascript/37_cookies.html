@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cookies</title>
+</head>
+
+<body>
+    <h1>working with cookies</h1>
+    <a href="download.zip" onclick="return checkDownloadCount();">Download Zip File<span id="count">0</span></a>
+    <script src="cookies.js"></script>
+    <script>
+        var downloadCount;
+        let counter = getCookie('counter');
+        console.log(counter);
+        if (counter == '') {
+            downloadCount = 0;
+        }
+        else {
+          downloadCount = parseInt(counter);
+            document.getElementById('count').innerHTML = downloadCount;
+        }
+        console.log(downloadCount);
+        let checkDownloadCount = function () {
+            downloadCount = downloadCount + 1;
+
+            if (downloadCount <= 3){
+                document.getElementById('count').innerHTML = downloadCount;
+            setCookie('counter', downloadCount);
+            return true;
+        }
+        else
+        {
+            alert('you have reached download limit of 3 in free account');
+            return false;
+        }
+    }
+    </script>
+</body>
+
+</html>

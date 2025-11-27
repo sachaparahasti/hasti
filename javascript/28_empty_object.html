@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Empty object & check key</h1>
+    <b>use console</b>
+    <p id="output"></p>
+    <script>
+        let creditCardDetail = {};
+        creditCardDetail['number'] = '1234 1234 1234 1234';
+        creditCardDetail['name'] = 'Hasti sachapara';
+        creditCardDetail.cvv = 123;
+        creditCardDetail.expiry = '12/5';
+        console.log(creditCardDetail);
+
+        if (creditCardDetail['limlt'] === undefined) {
+            document.getElementById('output').innerHTML = 'no such key limit exists';
+        }
+        if (creditCardDetail['number'] === undefined) {
+            document.getElementById('output').innerHTML += 'no such key number exists';
+        }
+        else
+            document.getElementById('output').innerHTML += '<br/> key number exists';
+
+        if ("bank" in creditCardDetail)
+            document.getElementById('output').innerHTML += '<br/> key bank exists';
+        else
+            document.getElementById('output').innerHTML += '<br/> key bank does not exists';
+    </script>
+</body>
+
+</html>

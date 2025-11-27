@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Playing</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        h1 {
+            margin-top: 20px;
+            text-align: center;
+            color: #0d6efd;
+        }
+
+        .table img {
+            border-radius: 50%;
+            border: 2px solid #0d6efd;
+        }
+
+        .table-hover tbody tr:hover {
+            background-color: #e9f5ff;
+        }
+
+        .card {
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+        }
+
+        .card-header h2 {
+            color: #0d6efd;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>Football Playing Nations</h1>
+            </div>
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Football</h2>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-striped table-primary " width="100px">
+                            <thead>
+                                <tr>
+                                    <th  style="color: blue; font-size: x-large;" width="10%">Sr No</th>
+                                    <th style="color: blue; font-size: x-large;"> Name</th>
+                                    <th style="color: blue; font-size: x-large;">Contient</th>
+                                    <th style="color: blue; font-size: x-large;">Flag Image</th>
+                                    <th style="color: blue; font-size: x-large;">Year Of Winning World Cup</th>
+                                </tr>
+                            </thead>
+                            <tbody id="output">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const players = [
+            { name: "Pelé", continent: "South America", flag: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_Argentina.svg", worldCupWins: [1958, 1962, 1970] },
+            { name: "Diego Maradona", continent: "South America", flag: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_Argentina.svg", worldCupWins: [1986] },
+            { name: "Lionel Messi", continent: "South America", flag: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_Argentina.svg", worldCupWins: [2022] },
+            { name: "Zinedine Zidane", continent: "Europe", flag: "https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg", worldCupWins: [1998] },
+            { name: "Kylian Mbappé", continent: "Europe", flag: "https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg", worldCupWins: [2018] },
+            { name: "Lothar Matthäus", continent: "Europe", flag: "https://upload.wikimedia.org/wikipedia/en/b/ba/Flag_of_Germany.svg", worldCupWins: [1990] },
+            { name: "Paolo Rossi", continent: "Europe", flag: "https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg", worldCupWins: [1982] },
+            { name: "Cristiano Ronaldo", continent: "Europe", flag: "https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Portugal.svg", worldCupWins: [] },
+            { name: "David Beckham", continent: "Europe", flag: "https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg", worldCupWins: [] },
+            { name: "Ronaldo Nazário", continent: "South America", flag: "https://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg", worldCupWins: [1994, 2002] }];
+        let temp = ``;
+        players.map((item, index) => {
+            // object destructing
+            let { name, continent, flag, worldCupWins } = item;
+            temp += `<tr>
+            <td>${index + 1}</td>
+            <td>${name}</td>
+            <td>${continent}</td>
+            <td><img src="${flag}" alt="${name} flag" width="60"></td>
+            <td>${worldCupWins}</td>
+            </tr>`
+        });
+        document.getElementById('output').innerHTML = temp;
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

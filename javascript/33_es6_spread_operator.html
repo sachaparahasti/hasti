@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spread Operator</title>
+</head>
+
+<body>
+    <h1>es6 spread operator</h1>
+    <div id="one">
+        <div id="two">
+            <div id="three"></div>
+        </div>
+    </div>
+    <script>
+        // create list
+        var list1 = [10, 20, 30];
+        var list2 = [40, 50, 60];
+        var list3 = [...list1, ...list2];
+        var temp = ``;
+        list3.map((item) => {
+            temp += `<p>${item}</P>`;
+        });
+
+        document.getElementById('one').innerHTML = temp;
+
+        let car1 = {
+            brand: "Toyota",
+            model: "Corolla",
+            color: "White",
+            year: 2022,
+            fuel: "Petrol"
+        };
+
+        let car2 = {
+            brand: "Honda", 
+            model: "Civic", 
+            color: "Black", 
+            year: 2023,     
+            engine: "Diesel"    // different property name
+        };
+
+        console.log(car1);
+        console.log(car2);
+
+        // es6 spread operator on car1 and car2
+        var newCar = { ...car1, ...car2 };
+        console.log(newCar);
+
+        var garage = [];
+        garage.push(car1); // one way to insert object into list at end
+        garage = [...garage, car2];
+        temp = ``;
+        garage.map((item) => {
+            let { brand, model, color, year } = item;
+            temp += `<p>Name ${brand} Model ${model} Color ${color} Year ${year}</p>`
+        });
+        document.getElementById('three').innerHTML = temp;
+    </script>
+</body>
+
+</html>

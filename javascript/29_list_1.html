@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>list in javascript</h1>
+    <b>use console</b>
+
+    <script>
+        let fruits=["Apple","Banana","Pineapple","Strawberry","Mango"];
+        console.log(fruits);
+
+        console.log("first fruits",fruits[0]);
+            console.log("second fruits",fruits[1]);
+
+            fruits.push("Cherry");
+            fruits.unshift("Orange");
+
+            console.log("now fruits as",fruits);
+
+            console.log("list size is ",fruits.length);
+
+            fruits.pop();
+            fruits.shift();
+            console.log("now fruits as" ,fruits);
+
+            console.log("has this list as coconut" ,fruits.includes("Coconut"));
+            console.log("has this list as mango" ,fruits.includes("Mango"));
+            console.log("has this list as coconut" ,fruits.indexOf("Coconut"));
+            console.log("has this list as mango",fruits.indexOf("Mango"));
+    </script>
+</body>
+</html>

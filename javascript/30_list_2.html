@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>sort , map, filter</h1>
+    <table border="1" align="center" width="80%">
+        <tr>
+            <td width="25%">
+                <h2>unsorted list</h2>
+                <ol id="list1"></ol>
+            </td>
+            <td width="25%">
+                <h2>sorted list</h2>
+                <ol id="list2"></ol>
+            </td>
+            <td width="25%">
+                <h2>Filtered list</h2>
+                <ol id="list3"></ol>
+            </td>
+            <td width="25%">
+                <h2></h2>
+            </td>
+        </tr>
+    </table>
+    <script>
+        var fruits = ["Apple", "Banana", "Mango", "Orange", "Pineapple", "Grapes", "Strawberry", "Watermelon", "Papaya", "Guava", "Pomegranate", "Lychee", "Kiwi", "Peach", "Plum", "Cherry", "Dragonfruit", "Pear", "Coconut", "Blueberry", "Raspberry", "Blackberry", "Fig", "Apricot", "Mulberry", "Custard Apple", "Starfruit"];
+        // console.log(fruits);
+        let size = fruits.length;
+        let temp = ``;
+        for (index = 0; index < size; index++) {
+            temp = temp + `<li>${fruits[index]}</li>`;
+        }
+        document.getElementById('list1').innerHTML = temp;
+
+        fruits.sort();
+        temp = ``;
+        fruits.map((item) => {
+            console.log(item);
+            temp = temp + `<li>${item}</li>`;
+        });
+        document.getElementById('list2').innerHTML = temp;
+
+        let filteredFruits = fruits.filter((item) => {
+            if (item.endsWith('y') === true)
+                return item;
+        });
+        console.log(filteredFruits);
+        temp = ``;
+        filteredFruits.map((item) => {
+            temp = temp + `<li>${item}</li>`;
+        });
+        document.getElementById('list3').innerHTML = temp;
+    </script>
+</body>
+
+</html>

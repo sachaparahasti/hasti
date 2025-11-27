@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Cloning</title>
+</head>
+<body>
+    <h1>Object Cloning</h1>
+    <h3>use console</h3>
+
+    <script>
+        const car1={
+            brand:"Tata",
+            model:"Nexon",
+             year: 2024,
+            price: 900000,
+            fuelType: "Petrol", // different property
+            tyre: 'Radial'
+        };
+
+        console.log("before change");
+        console.log("car 1",car1);
+        
+        var car2={};
+        for (let key in car1){
+            car2[key]=car1[key];
+        }
+        console.log("car 2",car2);
+        car2.model="xuv600";
+        car1.price = 1250000;
+        car2.brand = "Mahindra";
+        car2.tyre = "carbon";
+        console.log("after change");
+        console.log("car 1",car1);
+        console.log("car 2",car2);
+        
+    </script>
+</body>
+</html>
