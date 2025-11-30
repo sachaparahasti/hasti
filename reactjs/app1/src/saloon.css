@@ -1,0 +1,96 @@
+  :root {
+      --gold: #d4af37;
+      --gold-gradient: linear-gradient(135deg, #f7d794, #d4af37);
+      --dark: #1a0f1d;
+      --light: #fff8f0;
+    }
+    * { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fff;
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+    h1, h2, h3, .section-title { font-family: 'Playfair Display', serif; }
+
+    /* Navbar */
+    .navbar {
+      background: rgba(26,15,29,0.95) !important;
+      backdrop-filter: blur(10px);
+      transition: all 0.4s;
+    }
+    .navbar.scrolled { background: rgba(26,15,29,0.98) !important; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+
+    /* Hero */
+    .hero {
+      height: 100vh;
+      min-height: 650px;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1600948836101-f9ffda59d250?w=1920') center/cover no-repeat fixed;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 200px;
+      background: linear-gradient(transparent, #fff);
+    }
+    .hero h1 {
+      font-size: 5.5rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #fff, var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 4s infinite;
+    }
+    @keyframes shine {
+      0%, 100% { background-position: 0%; }
+      50% { background-position: 100%; }
+    }
+
+    /* Buttons */
+    .btn-gold {
+      background: var(--gold-gradient);
+      color: #000;
+      padding: 14px 40px;
+      border-radius: 50px;
+      font-weight: 600;
+      box-shadow: 0 10px 30px rgba(212,175,55,0.4);
+      transition: all 0.4s;
+    }
+    .btn-gold:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(212,175,55,0.6);
+    }
+
+    /* Glass Cards */
+    .glass-card {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      transition: all 0.4s;
+    }
+    .glass-card:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+    }
+
+    /* Gallery */
+    .gallery-img {
+      height: 300px;
+      object-fit: cover;
+      border-radius: 15px;
+      transition: all 0.5s;
+    }
+    .gallery-img:hover {
+      transform: scale(1.08);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+
+    footer {
+      background: linear-gradient(135deg, #1a0f1d, #2c1a1d);
+      color: #fff;
+    }

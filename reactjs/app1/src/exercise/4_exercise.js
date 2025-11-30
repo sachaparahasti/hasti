@@ -256,4 +256,3 @@ function Dental(props){
 }
 
 root.render(<Dental sitename="Pearly White Dental" slogan="Elevating Smiles Through Personalized Luxury" />);
-
