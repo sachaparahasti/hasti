@@ -237,8 +237,8 @@ function Dental(props){
   <footer className="text-white py-5">
     <div className="container text-center">
       <h3>{props.sitename}</h3>
-      <p>789 Luxury Smile Avenue • Bhavnager • India</p>
-      <p>Monday-Saturday: 9AM–8PM | Sunday: By Appointment</p>
+      <p>789 Luxury Smile Avenue • Bhavnagar • India</p>
+      <p>Monday-Saturday: 9AM-8PM | Sunday: By Appointment</p>
       <div className="mt-3">
         <a href="#" className="text-white mx-3 fs-4">
           <i className="fab fa-instagram" />
