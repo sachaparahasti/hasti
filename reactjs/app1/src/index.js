@@ -21,7 +21,8 @@ function DigitalClock() {
     let months=["January","February","March","April","May","June","July","August","September","October","November","December"];
     let day=days[today.getDay()];
     let date=today.getDate();
-      date = date < 10 ? "0" + date : date;
+    // ternary operator
+      date = date < 10 ? "0" + date : date; 
     let month=months[today.getMonth()];
     let year=today.getFullYear();
     
