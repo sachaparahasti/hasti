@@ -25,7 +25,7 @@ function DigitalClock() {
     let month=months[today.getMonth()];
     let year=today.getFullYear();
     
-     let output =(<>
+     return (<>
         <canvas id="matrix" />
         <div className="clock-container">
             <div>
@@ -39,6 +39,5 @@ function DigitalClock() {
         </div>
     </>
     )
-    root.render(output);
 }
-setInterval(DigitalClock, 1000);
+root.render(<DigitalClock/>);
