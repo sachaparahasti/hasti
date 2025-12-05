@@ -5,55 +5,41 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 class Restaurant extends React.Component {
   render() {
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-3 my-3 ">
-            <div className="card shadow">
-              <div className="card-header text-bg-primary d-flex justify-content-between">
-                <h5>Hasti Sachapara</h5>
-                <h5>
-                  <span className="badge bg-white text-primary">1</span>
-                </h5>
-              </div>
-              <div className="card-body">
-                <button className="btn btn-danger w-100">
-                  Thali - <span className="badge bg-white text-primary">1</span>
-                </button>
-                <div className="row mt-2">
-                  <div className="col-6">
-                    <button type="button" className="btn btn-dark w-100">
-                      Roti - <span className="badge bg-white text-dark">1</span>
-                    </button>
-                  </div>
-                  <div className="col-6">
-                    <button type="button" className="btn btn-warning w-100">
-                      chas - <span className="badge bg-white text-dark">1</span>
-                    </button>
-                  </div>
+     <div class="container">
+        <div class="row">
+            <div class="col-lg-4 my-3">
+                <div class="card shadow">
+                    <div class="card-header text-bg-primary d-flex justify-content-between">
+                        <h5>Hasti Sachapara</h5>
+                        <h5><span class="badge bg-white text-primary">1</span></h5>
+                    </div>
+                    <div class="card-body">
+                        <button class="btn btn-danger w-100" >Thali - <span class="badge bg-white text-primary">1</span></button>
+                        <div class="row mt-2">
+                            <div class="col-6">
+                                 <button type="button" class="btn btn-dark w-100">Roti - <span class="badge bg-white text-dark">1</span></button>
+                            </div>
+                            <div class="col-6">
+                                <button type="button" class="btn btn-warning w-100">chas - <span class="badge bg-white text-dark">1</span></button>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-6">
+                                 <button type="button" class="btn btn-info w-100">Papad - <span class="badge bg-white text-dark">1</span></button>
+                            </div>
+                            <div class="col-6">
+                                <button type="button" class="btn btn-success w-100">Sweet - <span class="badge bg-white text-dark">1</span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between text-bg-primary">
+                        <span class="h5">Total</span>
+                        <span class="h5">1</span>
+                    </div>
                 </div>
-                <div className="row mt-2">
-                  <div className="col-6">
-                    <button type="button" className="btn btn-info w-100">
-                      Papad -{" "}
-                      <span className="badge bg-white text-dark">1</span>
-                    </button>
-                  </div>
-                  <div className="col-6">
-                    <button type="button" className="btn btn-success w-100">
-                      Sweet -{" "}
-                      <span className="badge bg-white text-dark">1</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div className="card-footer d-flex justify-content-between text-bg-primary">
-                <span className="h5">Total</span>
-                <span className="h5">1</span>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
     );
   }
 }
