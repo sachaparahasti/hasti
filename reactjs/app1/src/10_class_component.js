@@ -8,17 +8,18 @@ class DinningTable extends React.Component {
     super(props);
     // create state object
    this.state = {
-  thali: 0,
-  roti: 0,
-  chas: 0,
-  papad: 0,
-  sweet: 0
-};
-
+                  thali: 0,
+                  roti: 0,
+                  chas: 0,
+                  papad: 0,
+                  sweet: 0
+                };
+                
     //create instance (property) variable
     this.name = props.name;
     this.tableno = props.tableno;
   }
+  
   updateThali = () => {
     this.setState({
       thali: this.state.thali + 1,
@@ -44,8 +45,21 @@ class DinningTable extends React.Component {
       sweet: this.state.sweet + 1,
     });
   };
+  
 render() {
-
+   const Price = {
+      thali: 120,
+      roti: 20,
+      chas: 10,
+      papad: 10,
+      sweet: 30
+};
+  const total =
+    this.state.thali * Price.thali +
+    this.state.roti * Price.roti +
+    this.state.chas * Price.chas +
+    this.state.papad * Price.papad +
+    this.state.sweet * Price.sweet;
     return (
       <div className="col-lg-4 my-3">
         <div className="card shadow">
@@ -84,13 +98,12 @@ render() {
           </div>
           <div className="card-footer d-flex justify-content-between text-white bg-primary">
                <span className="h5">Total</span>
-               <span className="h5">Rs 0</span>
+               <span className="h5">Rs {total}</span>
             </div>
         </div>
       </div>
     );
   }
-  
 }
 
 class Restaurant extends React.Component {
