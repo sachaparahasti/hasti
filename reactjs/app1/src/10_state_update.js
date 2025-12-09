@@ -18,48 +18,48 @@ class DinningTable extends React.Component {
     //create instance (property) variable
     this.name = props.name;
     this.tableno = props.tableno;
+    this.thaliPrice=100;
+    this.rotiPrice=10;
+    this.chasPrice=11;
+    this.papadPrice=7;
+    this.sweetPrice=15.25;
   }
-  
+  updatePrice=()=>{
+    this.setState({
+      price:(this.state.thali*this.thaliPrice)+
+      (this.state.roti*this.rotiPrice)+
+      (this.state.chas*this.chasPrice)+
+      (this.state.papad*this.papadPrice)+
+      (this.state.sweet*this.sweetPrice)
+    });
+  }
   updateThali = () => {
     this.setState({
       thali: this.state.thali + 1,
-    });
+    },()=>this.updatePrice());
   };
   updateRoti = () => {
     this.setState({
       roti: this.state.roti + 1,
-    });
+    },()=>this.updatePrice());
   };
   updateChas = () => {
     this.setState({
       chas: this.state.chas + 1,
-    });
+    },()=>this.updatePrice());
   };
   updatePapad = () => {
     this.setState({
       papad: this.state.papad + 1,
-    });
+    },()=>this.updatePrice());
   };
    updateSweet = () => {
     this.setState({
       sweet: this.state.sweet + 1,
-    });
+    },()=>this.updatePrice());
   };
   
 render() {
-   const Price = {
-      thali: 120,
-      roti: 20,
-      chas: 10,
-      papad: 10,
-      sweet: 30
-};
-  const total =
-    this.state.thali * Price.thali +
-    this.state.roti * Price.roti +
-    this.state.chas * Price.chas +
-    this.state.papad * Price.papad +
-    this.state.sweet * Price.sweet;
     return (
       <div className="col-lg-4 my-3">
         <div className="card shadow">
@@ -73,7 +73,7 @@ render() {
             </button>
             <div className="row mt-2">
               <div className="col-6">
-                <button type="button" className=" btn btn-dark w-100" onClick={this.updateRoti} >
+                <button type="button" className="btn btn-dark w-100" onClick={this.updateRoti} >
                   Roti -<span className="badge bg-white text-dark"> {this.state.roti} </span>
                 </button>
               </div>
@@ -98,7 +98,7 @@ render() {
           </div>
           <div className="card-footer d-flex justify-content-between text-white bg-primary">
                <span className="h5">Total</span>
-               <span className="h5">Rs {total}</span>
+               <span className="h5">Rs {this.state.price}</span>
             </div>
         </div>
       </div>
