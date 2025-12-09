@@ -82,6 +82,7 @@ class Score extends React.Component {
           </div>
 
           <div className="card-body">
+            <h3 className=" text-secondary m-1">Runs</h3>
             <button className="btn btn-secondary m-1" onClick={this.updateBall}>0</button>
             <button className="btn btn-primary m-1" onClick={this.updateOne}>1</button>
             <button className="btn btn-info m-1" onClick={this.updateTwo}>2</button>
@@ -102,7 +103,7 @@ class Score extends React.Component {
 
           <div className="card-body">
             <div className="row text-center">
-              <div className="col-4 text-start text-primary"><b>Yashasvi Jaiswal</b></div>
+              <div className="col-4 text-start text-primary"><b>Virat</b></div>
               <div className="col">{this.state.runs}</div>
               <div className="col">{this.state.balls}</div>
               <div className="col">{this.state.fours}</div>
@@ -110,7 +111,6 @@ class Score extends React.Component {
               <div className="col">{this.strikeRate()}</div>
             </div>
           </div>
-
         </div>
         </div>
       </div>
