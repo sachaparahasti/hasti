@@ -29,15 +29,18 @@ export default class DinningTable extends React.Component{
     componentDidMount(){
           console.log('componentDidMount method called..');
       }
-      updateTotal=()=>{
+       updateTotal = () => {
+        //conditional update
+
         this.setState({
-          price:(this.state.thali*this.thaliPrice)+
-          (this.state.roti*this.rotiPrice)+
-          (this.state.chas*this.chasPrice)+
-          (this.state.papad*this.papadPrice)+
-          (this.state.sweet*this.sweetPrice)
+            price: (this.state.thali * this.thaliPrice) +
+                (this.state.roti * this.rotiPrice) +
+                (this.state.chas * this.chasPrice) +
+                (this.state.papad * this.papadPrice) +
+                (this.state.sweet * this.sweetPrice)
+
         });
-      }
+    }
       updateThali = () => {
         this.setState({
           thali: this.state.thali + 1,
@@ -81,10 +84,19 @@ export default class DinningTable extends React.Component{
     componentWillUpdate(nextProp,nextState){
           console.log('componentWillUpdate method called...');
         }
-        componentDidUpdate(prevProp,prevState){
-          console.log('componentDidUpdate method called...');
-          this.updateTotal();
+        componentDidUpdate(prevProps, prevState) {
+        console.log('componentDidUpdate is called');
+        if (
+            this.state.thali != prevState.thali ||
+            this.state.roti !== prevState.roti ||
+            this.state.papad !== prevState.papad || 
+            this.state.chas !== prevState.chas || 
+            this.state.sweet !== prevState.sweet
+        ) 
+            {
+            this.updateTotal();
         }
+    }
         componentWillUnmount(){
           console.log('componentWillUnmount method called...');
       }
