@@ -12,3 +12,104 @@ code {
     monospace;
 }
 
+.team-card img {
+  height: 120px;
+  width: 100%;
+  object-fit: contain;
+}
+
+.team-card {
+  border-radius: 25px;
+  background-color: #ffffffef;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;  
+}
+
+  .club-card {
+  transition: all 0.3s ease;
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+  background: linear-gradient(145deg, #fff, #f8f9fa);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.club-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.card-img-top {
+  height: 120px;
+  object-fit: contain;
+  background: linear-gradient(45deg, #667eea 0%, #8863ad 100%);
+  border-radius: 15px;
+}
+
+
+.card-img-top-ipl {
+  height: 120px;
+  object-fit: contain;
+  background: linear-gradient(45deg, #1f348f 0%, #efedf1 100%);
+  border-radius: 15px;
+}
+
+
+/* Background */
+body {
+  background-color: #a4a1c0;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Dish Card */
+.dish-card {
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #2aa16c, #f4f8f4);
+}
+
+.dish-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Header */
+.dish-header {
+  background: linear-gradient(135deg, #89ceae, #e4e6e4);
+  padding: 16px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.dish-title {
+  color: #ffffff;
+  margin: 0;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Description */
+.dish-desc {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* Ingredients */
+.ingredients-title {
+  margin-top: 15px;
+  color: #198754;
+  font-weight: bold;
+}
+
+.ingredients-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.ingredients-list li {
+  background: #e9f7ef;
+  color: #198754;
+  padding: 6px 10px;
+  margin-bottom: 6px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}

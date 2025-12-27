@@ -86,7 +86,7 @@ export function remove(request,response){
     response.json([{'error':'input is missing'}]);
   }
   else{
-    let sql="select id from users where email=?";
+    let sql="DELETE FROM users WHERE email = ?";
     let data=[email];
     con.query(sql,data,function(error,result){
       if(error){
@@ -112,7 +112,7 @@ export function remove(request,response){
                             } 
                             else 
                             {
-                                response.json([{ 'error': 'no' }, { 'success': 'yes' }, { 'message': 'email send' }]);
+                                response.json([{ 'error': 'no' }, { 'success': 'yes' }, { 'message': 'email delete' }]);
                             }
             });
           });
