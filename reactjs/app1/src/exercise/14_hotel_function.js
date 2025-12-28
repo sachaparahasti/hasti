@@ -51,7 +51,7 @@ function Hotel(){
 ];
 return(
   <div className="container my-5">
-  <h2 className="text-center mb-4">Available Hotels</h2>
+  <h2 className="text-center text-black fw-bold  mb-4">Available Hotels</h2>
   <div className="row g-4">
     {
       hotels.map((item,index)=>{

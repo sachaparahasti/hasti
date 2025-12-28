@@ -113,3 +113,10 @@ body {
   border-radius: 8px;
   font-size: 0.85rem;
 }
+
+ .hotel-card {
+      transition: transform 0.3s;
+    }
+    .hotel-card:hover {
+      transform: translateY(-5px);
+    }
