@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hotel Listings</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .hotel-card {
+      transition: transform 0.3s;
+    }
+    .hotel-card:hover {
+      transform: translateY(-5px);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container my-5">
+    <h2 class="text-center mb-4">Available Hotels</h2>
+
+    <div class="row g-4">
+
+      <!-- Hotel Card -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card hotel-card shadow">
+          <div class="card-body">
+            <h5 class="card-title">Grand Heritage Hotel</h5>
+            <p class="text-muted mb-2">📍 Jaipur</p>
+            <p class="mb-1">⭐ Rating: <strong>4.4</strong></p>
+            <p class="mb-1">💰 Price: ₹4200 / night</p>
+            <p class="mb-1">🛏 Rooms Available: 18</p>
+            <p class="mb-3">📞 Contact: +91 98765 43210</p>
+            <a href="#" class="btn btn-primary w-100">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hotel Card -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card hotel-card shadow">
+          <div class="card-body">
+            <h5 class="card-title">Ocean View Resort</h5>
+            <p class="text-muted mb-2">📍 Goa</p>
+            <p class="mb-1">⭐ Rating: <strong>4.8</strong></p>
+            <p class="mb-1">💰 Price: ₹6500 / night</p>
+            <p class="mb-1">🛏 Rooms Available: 10</p>
+            <p class="mb-3">📞 Contact: +91 90909 12345</p>
+            <a href="#" class="btn btn-primary w-100">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hotel Card -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card hotel-card shadow">
+          <div class="card-body">
+            <h5 class="card-title">City Comfort Stay</h5>
+            <p class="text-muted mb-2">📍 Ahmedabad</p>
+            <p class="mb-1">⭐ Rating: <strong>4.1</strong></p>
+            <p class="mb-1">💰 Price: ₹3200 / night</p>
+            <p class="mb-1">🛏 Rooms Available: 25</p>
+            <p class="mb-3">📞 Contact: +91 99887 66554</p>
+            <a href="#" class="btn btn-primary w-100">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
