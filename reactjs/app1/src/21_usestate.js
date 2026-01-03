@@ -13,7 +13,6 @@ function Manka() {
     } else {
       setCount(count + 1);
     }
-    
   };
   return (
     <div className="container justify-content-center min-vh-100 d-flex align-items-center">
