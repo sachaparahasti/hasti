@@ -1,131 +1,117 @@
-import React from "react";
+import React, { Component } from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
+ import axios from "axios";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-class FootballDetail extends React.Component {
+class InsertCategory extends React.Component {
   constructor(props) {
     super(props);
-    this.team = props.club;
-    this.trophies = props.trophies;
-    this.captain = props.captain;
-    this.homeGround = props.homeGround;
-    this.logo = props.logo;
-    this.index = props.index;
+    this.state = {};
   }
+  updateValue = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  };
+  uploadPhoto = (file) => {
+    this.setState({
+      photo: file,
+    });
+  };
+  uploadCategory = (event) => {
+    console.log(this.state);
+    event.preventDefault();
+  };
   render() {
     return (
-      <div className="col-md-4">
-        <div className="card club-card h-100 text-center">
-          <img src={this.logo} className="card-img-top p-3" alt={this.club} />
-          <div className="card-body">
-            <h5 className="card-title">{this.club}</h5>
-            <p className="card-text">
-              <strong>Trophies:</strong> {this.trophies}
-              <br />
-              <strong>Captain:</strong> {this.captain}
-              <br />
-              <strong>Home Ground:</strong> {this.homeGround}
-            </p>
+      <div className="container mt-5">
+        <div className="row justify-content-center">
+          <div className="col-lg-6 col-sm-12 col-md-8">
+            <div className="card shadow">
+              <div className="card-header text-bg-primary text-center">
+                <h4 className="mb-0">Insert Category</h4>
+              </div>
+              <div className="card-body">
+                <form
+                  method="post"
+                  onSubmit={this.uploadCategory}
+                  encType="multipart/form-data"
+                >
+                  {/* Name */}
+                  <div className="mb-3">
+                    <label htmlFor="categoryname" className="form-label">
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="category_name"
+                      id="categoryname"
+                      placeholder="Enter name"
+                      required
+                      value={this.state.name}
+                      onChange={(e) => this.updateValue(e)}
+                    />
+                  </div>
+                  {/* Photo */}
+                  <div className="mb-3">
+                    <label className="form-label" htmlFor="categoryphoto">
+                      Photo
+                    </label>
+                    <input
+                      type="file"
+                      name="category_photo"
+                      id="categoryphoto"
+                      className="form-control"
+                      required
+                      onChange={(e) => this.uploadPhoto(e.target.files[0])}
+                    />
+                  </div>
+                  {/* Is Live */}
+                  <div className="mb-3">
+                    <label className="form-label d-block">Is Live</label>
+                    <div className="form-check form-check-inline">
+                      <input
+                        className="form-check-input"
+                        type="radio"
+                        name="islive"
+                        id="liveYes"
+                        value={1}
+                        required
+                        onChange={(e) => this.updateValue(e)}
+                      />
+                      <label className="form-check-label" htmlFor="liveYes">
+                        Yes
+                      </label>
+                    </div>
+                    <div className="form-check form-check-inline">
+                      <input
+                        className="form-check-input"
+                        type="radio"
+                        name="islive"
+                        id="liveNo"
+                        value={0}
+                        required
+                        onChange={(e) => this.updateValue(e)}
+                      />
+                      <label className="form-check-label" htmlFor="liveNo">
+                        No
+                      </label>
+                    </div>
+                  </div>
+                  {/* Submit */}
+                  <div className="d-grid">
+                    <button type="submit" className="btn btn-primary">
+                      Save Category
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     );
   }
 }
-
-function Football() {
-  const footballClubs = [
-    {
-      club: "Real Madrid",
-      trophies: 14,
-      captain: "Nacho Fernández",
-      homeGround: "Santiago Bernabéu Stadium",
-      logo: "https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg",
-    },
-    {
-      club: "FC Barcelona",
-      trophies: 5,
-      captain: "Ronald Araújo",
-      homeGround: "Spotify Camp Nou",
-      logo: "https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg",
-    },
-    {
-      club: "Manchester United",
-      trophies: 3,
-      captain: "Bruno Fernandes",
-      homeGround: "Old Trafford",
-      logo: "https://upload.wikimedia.org/wikipedia/en/7/7a/Manchester_United_FC_crest.svg",
-    },
-    {
-      club: "Liverpool",
-      trophies: 6,
-      captain: "Virgil van Dijk",
-      homeGround: "Anfield",
-      logo: "https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg",
-    },
-    {
-      club: "Bayern Munich",
-      trophies: 6,
-      captain: "Manuel Neuer",
-      homeGround: "Allianz Arena",
-      logo: "https://upload.wikimedia.org/wikipedia/en/1/1f/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg",
-    },
-    {
-      club: "AC Milan",
-      trophies: 7,
-      captain: "Davide Calabria",
-      homeGround: "San Siro",
-      logo: "https://upload.wikimedia.org/wikipedia/en/d/d0/AC_Milan.svg",
-    },
-    {
-      club: "Chelsea",
-      trophies: 2,
-      captain: "Reece James",
-      homeGround: "Stamford Bridge",
-      logo: "https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg",
-    },
-    {
-      club: "Manchester City",
-      trophies: 1,
-      captain: "Kyle Walker",
-      homeGround: "Etihad Stadium",
-      logo: "https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg",
-    },
-    {
-      club: "Juventus",
-      trophies: 2,
-      captain: "Danilo",
-      homeGround: "Allianz Stadium",
-      logo: "https://upload.wikimedia.org/wikipedia/en/d/da/Juventus_FC_2017_logo.svg",
-    },
-    {
-      club: "Paris Saint-Germain",
-      trophies: 0,
-      captain: "Marquinhos",
-      homeGround: "Parc des Princes",
-      logo: "https://upload.wikimedia.org/wikipedia/en/a/a7/Paris_Saint-Germain_F.C..svg",
-    },
-  ];
-  return (
-    <div className="container my-5">
-      <h1 className="text-center mb-4 fw-bold ">IPL Teams Details</h1>
-      <div className="row g-4">
-        {footballClubs.map((item, index) => {
-          return (
-            <FootballDetail
-              key={index}
-              team={item.club}
-              trophies={item.trophies}
-              captain={item.captain}
-              homeGround={item.homeGround}
-              logo={item.logo}
-              index={index}
-            />
-          );
-        })}
-      </div>
-    </div>
-  );
-}
-root.render(<Football />);
+root.render(<InsertCategory />);
