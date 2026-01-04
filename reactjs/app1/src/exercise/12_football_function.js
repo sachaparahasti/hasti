@@ -3,11 +3,10 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-
 class FootballDetail extends React.Component {
   constructor(props) {
     super(props);
-    this.club = props.club;
+    this.team = props.club;
     this.trophies = props.trophies;
     this.captain = props.captain;
     this.homeGround = props.homeGround;
@@ -16,7 +15,7 @@ class FootballDetail extends React.Component {
   }
   render() {
     return (
-      <div   className="col-md-4">
+      <div className="col-md-4">
         <div className="card club-card h-100 text-center">
           <img src={this.logo} className="card-img-top p-3" alt={this.club} />
           <div className="card-body">
@@ -110,22 +109,21 @@ function Football() {
   ];
   return (
     <div className="container my-5">
-      <h1 className="text-center mb-5 fw-bold">Top Football Clubs</h1>
-      <div className="row g-4">{/* Real Madrid */}
-      {
-      footballClubs.map((item,index) => {
-        return (
-          <FootballDetail
-            key={index}
-            club={item.club}
-            trophies={item.trophies}
-            captain={item.captain}
-            homeGround={item.homeGround}
-            logo={item.logo}
-            index={index}
-          />
-        );
-      })}
+      <h1 className="text-center mb-4 fw-bold ">IPL Teams Details</h1>
+      <div className="row g-4">
+        {footballClubs.map((item, index) => {
+          return (
+            <FootballDetail
+              key={index}
+              team={item.club}
+              trophies={item.trophies}
+              captain={item.captain}
+              homeGround={item.homeGround}
+              logo={item.logo}
+              index={index}
+            />
+          );
+        })}
       </div>
     </div>
   );
