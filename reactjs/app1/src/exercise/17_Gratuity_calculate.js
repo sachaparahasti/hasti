@@ -2,7 +2,7 @@ import React, { Component, useState } from "react";
 import ReactDOM from "react-dom/client";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-// uncontrolled components
+// uncontrolled components(ref)
 class Calculate extends React.Component {
   constructor(props) {
     super(props);
