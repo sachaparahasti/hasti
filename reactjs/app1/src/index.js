@@ -1,114 +1,126 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import ReactDOM from "react-dom/client";
+import axios from "axios";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-// uncontrolled component
-class Calculate extends React.Component {
+class InsertCategory extends React.Component {
   constructor(props) {
     super(props);
-    this.year = React.createRef();
-    this.month = React.createRef();
-    this.salary = React.createRef();
-    this.state = {
-      submit: "",
-    };
+    this.state = {};
   }
-  calculateGratuity = (event) => {
-    event.preventDefault();
-    let years = Number(this.year.current.value);
-    let months = Number(this.month.current.value);
-    let salary = Number(this.salary.current.value);
-
-    // Convert months to year
-    if (months >= 6) {
-      years += 1;
-    }
-
-    // Minimum 5 years rule
-    if (years < 5) {
-      this.setState({
-        gratuity: 0,
-        message: "Gratuity not applicable (minimum 5 years required)",
-      });
-      return;
-    }
-
-    let gratuityAmount = (salary * 15 * years) / 26;
-
+  updateValue = (event) => {
     this.setState({
-      gratuity: gratuityAmount.toFixed(2),
-      message: "",
+      [event.target.name]: event.target.value,
     });
   };
-
+  uploadPhoto = (file) => {
+    this.setState({
+      photo: file,
+    });
+  };
+  uploadCategory = (event) => {
+    console.log(this.state);
+    event.preventDefault();
+    // api calling
+    let apiAddress = "https://theeasylearnacademy.com/shop/ws/category.php";
+    axios(
+      {
+        url: apiAddress,
+        method: "get",
+        responseType: "json",
+      }
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+    );
+  };
   render() {
     return (
       <div className="container mt-5">
         <div className="row justify-content-center">
-          <div className="col-12 col-md-6">
+          <div className="col-lg-6 col-sm-12 col-md-8">
             <div className="card shadow">
-              <div className="card-header bg-primary text-white">
-                <h4 className="mb-0">Gratuity Calculate</h4>
+              <div className="card-header text-bg-primary text-center">
+                <h4 className="mb-0">Insert Category</h4>
               </div>
               <div className="card-body">
-                <form onSubmit={this.calculateGratuity} method="post">
-                  {/* Service Duration Year */}
+                <form
+                  method="post"
+                  onSubmit={this.uploadCategory}
+                  encType="multipart/form-data"
+                >
+                  {/* Name */}
                   <div className="mb-3">
-                    <label className="form-label">
-                      Service Duration (Years)
+                    <label htmlFor="categoryname" className="form-label">
+                      Name
                     </label>
                     <input
-                      type="number"
+                      type="text"
                       className="form-control"
-                      placeholder="Enter years"
-                      ref={this.year}
+                      name="category_name"
+                      id="categoryname"
+                      placeholder="Enter name"
+                      required
+                      value={this.state.name}
+                      onChange={(e) => this.updateValue(e)}
                     />
                   </div>
-                  {/* Service Duration Month */}
+                  {/* Photo */}
                   <div className="mb-3">
-                    <label className="form-label">
-                      Service Duration (Months)
+                    <label className="form-label" htmlFor="categoryphoto">
+                      Photo
                     </label>
                     <input
-                      type="number"
-                      ref={this.month}
+                      type="file"
+                      name="category_photo"
+                      id="categoryphoto"
                       className="form-control"
-                      placeholder="Enter months"
-                      min={0}
-                      max={11}
+                      required
+                      onChange={(e) => this.uploadPhoto(e.target.files[0])}
                     />
                   </div>
-                  {/* Last Salary */}
-                  <div className="mb-4">
-                    <label className="form-label">Last Salary</label>
-                    <input
-                      type="number"
-                      ref={this.salary}
-                      className="form-control"
-                      placeholder="Enter last salary"
-                    />
+                  {/* Is Live */}
+                  <div className="mb-3">
+                    <label className="form-label d-block">Is Live</label>
+                    <div className="form-check form-check-inline">
+                      <input
+                        className="form-check-input"
+                        type="radio"
+                        name="islive"
+                        id="liveYes"
+                        value={1}
+                        required
+                        onChange={(e) => this.updateValue(e)}
+                      />
+                      <label className="form-check-label" htmlFor="liveYes">
+                        Yes
+                      </label>
+                    </div>
+                    <div className="form-check form-check-inline">
+                      <input
+                        className="form-check-input"
+                        type="radio"
+                        name="islive"
+                        id="liveNo"
+                        value={0}
+                        required
+                        onChange={(e) => this.updateValue(e)}
+                      />
+                      <label className="form-check-label" htmlFor="liveNo">
+                        No
+                      </label>
+                    </div>
                   </div>
-                  <button type="submit" className="btn btn-primary w-100">
-                    Submit
-                  </button>
-                  <div className="mt-3 text-center">
-                    <h5>
-                      submit:{" "}
-                      <span className="text-primary">{this.state.submit}</span>
-                    </h5>
+                  {/* Submit */}
+                  <div className="d-grid">
+                    <button type="submit" className="btn btn-primary">
+                      Save Category
+                    </button>
                   </div>
                 </form>
-
-                 <div className="mt-4 text-center">
-                  {this.state.message && (
-                    <p className="text-danger">{this.state.message}</p>
-                  )}
-                  {!this.state.message && (
-                    <h5 className="text-success">
-                      Gratuity Amount: ₹{this.state.gratuity}
-                    </h5>
-                  )}
-                </div>
               </div>
             </div>
           </div>
@@ -117,4 +129,4 @@ class Calculate extends React.Component {
     );
   }
 }
-root.render(<Calculate />);
+root.render(<InsertCategory />);

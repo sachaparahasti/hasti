@@ -36,6 +36,7 @@ class Category extends React.Component {
           }
         }
         console.log(error);
+        
       })
       .catch((error) => {
         console.log(error);
