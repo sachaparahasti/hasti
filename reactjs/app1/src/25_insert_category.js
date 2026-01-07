@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom/client";
- import axios from "axios";
+import axios from "axios";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 class InsertCategory extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {}
   }
   updateValue = (event) => {
     this.setState({
@@ -18,10 +18,40 @@ class InsertCategory extends React.Component {
       photo: file,
     });
   };
-  uploadCategory = (event) => {
-    console.log(this.state);
-    event.preventDefault();
-  };
+ uploadCategory = (event) => {
+        console.log(this.state);
+        event.preventDefault();
+        let apiAddress = "https://theeasylearnacademy.com/shop/ws/insert_category.php";
+        let form = new FormData();
+        form.append("title", this.state.name);
+        form.append("photo", this.state.photo);
+        form.append("islive", this.state.islive);
+        //api calling
+        axios({
+            url: apiAddress,
+            method: 'post',
+            responseType: 'json',
+            data: form
+        }).then((response) => {
+            console.log(response);
+            let data = response.data;
+            let error = data[0]['error'];
+            if (error !== 'no') {
+                alert(error);
+            }
+            else {
+                let success = data[1]['success'];
+                let message = data[2]['message'];
+                if (success === 'yes')
+                    alert(message);
+                else
+                    alert(message);
+            }
+        }).catch((error) => {
+            console.log(error);
+            alert('network error, or api address is invalid, or server is down');
+        });
+      };
   render() {
     return (
       <div className="container mt-5">
@@ -45,7 +75,7 @@ class InsertCategory extends React.Component {
                     <input
                       type="text"
                       className="form-control"
-                      name="category_name"
+                      name="name"
                       id="categoryname"
                       placeholder="Enter name"
                       required
@@ -60,7 +90,7 @@ class InsertCategory extends React.Component {
                     </label>
                     <input
                       type="file"
-                      name="category_photo"
+                      name="photo"
                       id="categoryphoto"
                       className="form-control"
                       required
